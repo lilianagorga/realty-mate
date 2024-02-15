@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Map from './Map';
 import PlacesAutocomplete from './PlacesAutocomplete';
 import { useJsApiLoader } from '@react-google-maps/api';
+import MortgageCalculator from './MortgageCalculator';
 
 const libraries = ['places'];
 
@@ -54,6 +55,7 @@ function App() {
     <>
     <PlacesAutocomplete onPlaceSelected={handlePlaceSelect} />
     <Map center={mapCenter} zoom={zoom} onPositionChange={onStreetViewPositionChanged}/>
+    <MortgageCalculator />
   </>
   );
 }
