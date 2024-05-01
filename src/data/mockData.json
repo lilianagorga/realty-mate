@@ -1,0 +1,96 @@
+{
+  "hits": [
+    {
+      "id": 1,
+      "externalID": "12345",
+      "title": "Casa di lusso con vista mare",
+      "price": 1000000,
+      "rooms": 4,
+      "baths": 2,
+      "area": 3500,
+      "purpose": "for-sale",
+      "type": "Condo",
+      "furnishingStatus": "Furnished",
+      "description": "This luxury sea-view condo offers an unmatched living experience with amenities galore and a breathtaking view.",
+      "photos": [
+        { "id": "photo1", "url": "/images/house2.jpg" },
+        { "id": "photo2", "url": "/images/house3.jpg" },
+        { "id": "photo3", "url": "/images/house.jpg" }
+      ],
+      "amenities": [
+        {"text": "Swimming Pool"},
+        {"text": "Gym"},
+        { "text": "Health Club" }
+      ]
+    },
+    {
+      "id": 2,
+      "externalID": "12346",
+      "title": "Appartamento accogliente in centro",
+      "price": 500000,
+      "rooms": 2,
+      "baths": 1,
+      "area": 1200,
+      "purpose": "for-rent",
+      "type": "Apartment",
+      "furnishingStatus": "Unfurnished",
+      "description": "Cozy downtown apartment, perfect for young professionals or small families looking to be at the heart of the city.",
+      "photos": [
+        { "id": "photo4", "url": "/images/house2.jpg" },
+        { "id": "photo5", "url": "/images/house.jpg" },
+        { "id": "photo6", "url": "/images/house3.jpg" }
+      ],
+      "amenities": [
+        {"text": "Laundry"},
+        {"text": "Solarium"},
+        { "text": "Cafeteria" }
+      ]
+    },
+    {
+      "id": 3,
+      "externalID": "12347",
+      "title": "Appartamento accogliente in centro",
+      "price": 500000,
+      "rooms": 2,
+      "baths": 1,
+      "area": 1200,
+      "purpose": "for-rent",
+      "type": "Apartment",
+      "furnishingStatus": "Unfurnished",
+      "description": "Cozy downtown apartment, perfect for young professionals or small families looking to be at the heart of the city.",
+      "photos": [
+        { "id": "photo7", "url": "/images/house3.jpg" },
+        { "id": "photo8", "url": "/images/house2.jpg" },
+        { "id": "photo9", "url": "/images/house.jpg" }
+      ],
+      "amenities": [
+        {"text": "Laundry"},
+        {"text": "Solarium"},
+        { "text": "Cafeteria" }
+      ]
+    },
+    {
+      "id": 4,
+      "externalID": "12348",
+      "title": "Appartamento accogliente in centro",
+      "price": 500000,
+      "rooms": 2,
+      "baths": 1,
+      "area": 1200,
+      "purpose": "for-rent",
+      "type": "Apartment",
+      "furnishingStatus": "Unfurnished",
+      "description": "Cozy downtown apartment, perfect for young professionals or small families looking to be at the heart of the city.",
+      "photos": [
+        { "id": "photo10", "url": "/images/house.jpg" },
+        { "id": "photo11", "url": "/images/house2.jpg" },
+        { "id": "photo12", "url": "/images/house3.jpg" }
+      ],
+      "amenities": [
+        {"text": "Laundry"},
+        {"text": "Solarium"},
+        { "text": "Cafeteria" }
+      ]
+    }
+  ]
+}

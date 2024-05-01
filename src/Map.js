@@ -1,14 +1,29 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { GoogleMap, Marker, StreetViewPanorama } from '@react-google-maps/api';
+import { GoogleMap, StreetViewPanorama } from '@react-google-maps/api';
 
-function Map({ center, zoom, onPositionChange }) {
+function Map({ center, zoom, onPositionChange, isLoaded }) {
   const containerStyle = {
-    width: '100%',
-    height: '70vh'
+    width: '70%',
+    height: '50vh'
   };
 
   const panoramaRef = useRef(null);
   const [panoramaPosition, setPanoramaPosition] = useState(center);
+
+  useEffect(() => {
+    if (isLoaded && window.google && window.google.maps) {
+      const { AdvancedMarkerElement } = window.google.maps.marker;
+
+      const map = panoramaRef.current && panoramaRef.current.getMap();
+      
+      if (map) {
+        new AdvancedMarkerElement({
+          position: center,
+          map: map,
+        });
+      }
+    }
+  }, [isLoaded, center]);
   
   const panoramaOptions = {
     position: center,
@@ -39,8 +54,7 @@ function Map({ center, zoom, onPositionChange }) {
       mapContainerStyle={containerStyle}
       center={center}
       zoom={zoom}
-  >
-    <Marker position={center} />
+    >
     <StreetViewPanorama options={panoramaOptions} onPositionChanged={handlePositionChange} />
   </GoogleMap>
   );
