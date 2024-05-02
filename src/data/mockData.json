@@ -13,9 +13,9 @@
       "furnishingStatus": "Furnished",
       "description": "This luxury sea-view condo offers an unmatched living experience with amenities galore and a breathtaking view.",
       "photos": [
-        { "id": "photo1", "url": "/images/house2.jpg" },
-        { "id": "photo2", "url": "/images/house3.jpg" },
-        { "id": "photo3", "url": "/images/house.jpg" }
+        { "id": "photo1", "url": "/images/properties/house2.jpg" },
+        { "id": "photo2", "url": "/images/properties/house3.jpg" },
+        { "id": "photo3", "url": "/images/properties/house.jpg" }
       ],
       "amenities": [
         {"text": "Swimming Pool"},
@@ -36,9 +36,9 @@
       "furnishingStatus": "Unfurnished",
       "description": "Cozy downtown apartment, perfect for young professionals or small families looking to be at the heart of the city.",
       "photos": [
-        { "id": "photo4", "url": "/images/house2.jpg" },
-        { "id": "photo5", "url": "/images/house.jpg" },
-        { "id": "photo6", "url": "/images/house3.jpg" }
+        { "id": "photo4", "url": "/images/properties/house2.jpg" },
+        { "id": "photo5", "url": "/images/properties/house.jpg" },
+        { "id": "photo6", "url": "/images/properties/house3.jpg" }
       ],
       "amenities": [
         {"text": "Laundry"},
@@ -59,9 +59,9 @@
       "furnishingStatus": "Unfurnished",
       "description": "Cozy downtown apartment, perfect for young professionals or small families looking to be at the heart of the city.",
       "photos": [
-        { "id": "photo7", "url": "/images/house3.jpg" },
-        { "id": "photo8", "url": "/images/house2.jpg" },
-        { "id": "photo9", "url": "/images/house.jpg" }
+        { "id": "photo7", "url": "/images/properties/house3.jpg" },
+        { "id": "photo8", "url": "/images/properties/house2.jpg" },
+        { "id": "photo9", "url": "/images/properties/house.jpg" }
       ],
       "amenities": [
         {"text": "Laundry"},
@@ -82,9 +82,9 @@
       "furnishingStatus": "Unfurnished",
       "description": "Cozy downtown apartment, perfect for young professionals or small families looking to be at the heart of the city.",
       "photos": [
-        { "id": "photo10", "url": "/images/house.jpg" },
-        { "id": "photo11", "url": "/images/house2.jpg" },
-        { "id": "photo12", "url": "/images/house3.jpg" }
+        { "id": "photo10", "url": "/images/properties/house.jpg" },
+        { "id": "photo11", "url": "/images/properties/house2.jpg" },
+        { "id": "photo12", "url": "/images/properties/house3.jpg" }
       ],
       "amenities": [
         {"text": "Laundry"},
