@@ -1,5 +1,7 @@
 import React from 'react';
-import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer, Button } from '@chakra-ui/react';
+import { AiOutlineMail, AiOutlineSearch } from 'react-icons/ai';
+import { MdHome } from 'react-icons/md';
 import { FcMenu, FcHome, FcAbout } from 'react-icons/fc';
 import { BsSearch } from 'react-icons/bs';
 import { FiKey } from 'react-icons/fi';
@@ -10,9 +12,38 @@ const Navbar = () => {
 
   return (
     <Flex p="2" borderBottom="1px" borderColor="gray.100" position="relative" style={{ zIndex: 1000 }}>
-    <Box fontSize="3xl" color="blue.400" fontWeight="bold" onClick={() => navigate('/')}>
+    <Button
+        leftIcon={<MdHome />}
+        colorScheme="teal"
+        variant="outline"
+        fontSize="xl"
+        fontWeight="bold"
+        onClick={() => navigate('/')}
+        mr="2"
+      >
         Home
-      </Box>
+      </Button>
+      <Button
+        leftIcon={<AiOutlineSearch />}
+        colorScheme="green"
+        variant="outline"
+        fontSize="xl"
+        fontWeight="bold"
+        onClick={() => navigate('/search')}
+        mr="2"
+      >
+        Search
+      </Button>
+      <Button
+        leftIcon={<AiOutlineMail />}
+        colorScheme="blue"
+        variant="outline"
+        fontSize="xl"
+        fontWeight="bold"
+        onClick={() => navigate('/contact')}
+      >
+        Contact
+      </Button>
     <Spacer />
     <Box>
       <Menu>
@@ -29,6 +60,9 @@ const Navbar = () => {
           </MenuItem>
           <MenuItem icon={<FiKey />} onClick={() => navigate('/search?purpose=for-rent')}>
             Rent Property
+          </MenuItem>
+          <MenuItem icon={<AiOutlineMail />} onClick={() => navigate('/contact')}>
+              Contact
           </MenuItem>
         </MenuList>
       </Menu>
