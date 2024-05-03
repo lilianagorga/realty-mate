@@ -7,7 +7,7 @@ import Home from './components/pages/Home';
 import Search from './components/pages/Search';
 import About from './components/pages/About';
 import Navbar from './components/Navbar';
-import PropertyDetails from './components/property/PropertyDetails';
+import Property from './components/property/Property';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 
@@ -22,8 +22,8 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/property/:id" element={<PropertyDetails />} />
+            <Route path="/search/" element={<Search />} />
+            <Route path="/property/:id" element={<Property />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/about" element={<About />} />
           </Routes>

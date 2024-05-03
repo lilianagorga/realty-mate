@@ -10,3 +10,20 @@ export const fetchApi = async (url) => {
   })
   return data;
 }
+
+export const getProperties = async (num) => {
+  const data = await fetchApi('/properties/list', {
+    locationExternalIDs: '5002,6020',
+    purpose: 'for-sale',
+    hitsPerPage: num,
+    page: '0',
+    lang: 'en',
+    sort: 'city-level-score',
+  });
+  return data.hits;
+};
+
+export const getProperty = async (id) => {
+  const data = await fetchApi('/properties/detail', { externalID: id });
+  return data;
+};

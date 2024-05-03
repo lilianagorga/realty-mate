@@ -1,45 +1,97 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Box, Flex, Text, Avatar } from '@chakra-ui/react';
-import { FaBed, FaBath } from 'react-icons/fa';
-import { BsGridFill } from 'react-icons/bs';
-import { GoVerified } from 'react-icons/go';
-import millify from 'millify';
+// import React, { useEffect, useState } from 'react';
+// import { getProperty } from "../../utils/fetchApi";
+// import { useParams } from 'react-router-dom';
+import React from "react";
+import { Box, Badge, Flex, Grid, GridItem, SimpleGrid, Text } from "@chakra-ui/react";
+import { TbMapPin } from "react-icons/tb";
+import PropertyThumbnailSlider from "./PropertyThumbnailSlider";
+import PropertyStats from "./PropertyStats";
+import { usePropertyFormat } from "../../hooks/usePropertyFormat";
+import singleProperty from '../../data/property.json';
+import TextContentBox from "../TextContentBox";
 
-const Property = ({ property }) => (
-  <Link to={`/property/${property.externalID}`}>
-    <Flex flexWrap="wrap" w="420px" p="5" paddingTop="0" justifyContent="flex-start" cursor="pointer">
-      <Box>
-        <img
-          src={property.coverPhoto ? property.coverPhoto.url : "/images/properties/house.jpg"}
-          width={400}
-          height={260}
-          alt="house"
-        />
+
+const Property = () => {
+  const property = singleProperty;
+
+
+  // const [property, setProperty] = useState(singleProperty);
+
+  // useEffect(() => {
+  //   const loadProperty = async () => {
+  //     const data = await getProperty(id);
+  //     setProperty(data);
+  //   };
+
+  //   loadProperty();
+  // }, [id]);
+
+  // if (!property) {
+  //   return <div>Loading...</div>;
+  // }
+  console.log(property);
+  const {     
+    address,
+    propertyType,
+    price,
+    title,
+    rooms,
+    baths,
+    purpose,
+    sqSize,
+    externalID,
+    photos,
+    description,
+    amenities,
+  } = usePropertyFormat(property);
+
+  return (
+    <Box backgroundColor='#f7f8f9' paddingY='3rem'>
+        <Grid 
+          templateColumns='repeat(6, 1fr)'
+          gap='5'
+          maxWidth='1280px'
+          margin='0 auto'
+        >
+          <GridItem colSpan='6'>
+            <Text fontSize='3xl' fontWeight='medium' color='blue.800' textAlign={{ base: 'center', sm: 'left' }}>
+              {propertyType} {title}
+            </Text>
+            <Flex 
+              fontSize='xl' 
+              color='blue.600' 
+              textAlign='center' 
+              alignItems='center' 
+              flexDirection={{base: 'column', sm: 'row'}}
+              gap='0.5rem' 
+              marginY={{base: '1rem', sm: '0'}}
+            >
+              <TbMapPin />
+              <Text fontWeight='light' >
+                {address} - ID:{externalID}
+              </Text>
+              <Badge colorScheme='green'>{purpose}</Badge>
+            </Flex>
+          </GridItem>
+          <GridItem colSpan={{base: '6', sm: '3'}}>
+            <PropertyThumbnailSlider photos={photos} />
+          </GridItem>
+          <GridItem colSpan={{base: '6', sm: '3'}}>
+            <PropertyStats price={price} rooms={rooms} baths={baths} sqSize={sqSize} />
+            <TextContentBox title='Description'>
+              <Text fontWeight='light' color='gray.600' fontSize='1rem' noOfLines='4'>{description}</Text>
+            </TextContentBox>
+            <TextContentBox title='Amenities'>
+              <SimpleGrid columns={{base: 1, sm: 2}} fontWeight='light' color='gray.600' fontSize='1rem'>
+                {amenities.length 
+                  ? amenities.map((item, index) => <Text key={index}>{item}</Text>)
+                  : 'Please contact us for more info' }
+              </SimpleGrid>
+            </TextContentBox>
+          </GridItem>
+        </Grid>
       </Box>
-      <Box w="full">
-        <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
-          <Flex alignItems="center">
-            <Box paddingRight="3" color="green.400">{property.isVerified && <GoVerified />}</Box>
-            <Text fontWeight='bold' fontSize='lg'>{millify(property.price)}{property.rentFrequency && `/${property.rentFrequency}`}</Text>
-          </Flex>
-          <Box>
-            <Avatar 
-            // size='sm' 
-            src={property.agency?.logo?.url} 
-            boxSize='30px'
-            ></Avatar>
-          </Box>
-        </Flex>
-        <Flex alignItems="center" p="1" justifyContent="space-between" w="250px" color="blue.400">
-          {property.rooms} <FaBed /> | {property.baths} <FaBath /> | {millify(property.area)} sqft <BsGridFill />
-        </Flex>
-        <Text fontSize="lg">
-          {property.title.length > 30 ? `${property.title.substring(0, 30)}...` : property.title}
-        </Text>
-      </Box>
-    </Flex>
-  </Link>
-);
+  );
+};
 
 export default Property;

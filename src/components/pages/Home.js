@@ -3,8 +3,9 @@ import Map from '../../Map';
 import PlacesAutocomplete from '../../PlacesAutocomplete';
 import { useJsApiLoader } from '@react-google-maps/api';
 import MortgageCalculator from '../../MortgageCalculator';
-import Property from '../property/Property';
-import mockData from "../../data/mockData.json";
+import FeaturedProperties from '../property/FeaturedProperties';
+import propertiesData  from '../../data/properties.json';
+import HeroBanner from "../HeroBanner";
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
@@ -13,21 +14,14 @@ const libraries = ['places', 'marker'];
 function Home() {
   const [mapCenter, setMapCenter] = useState({ lat: 41.8719, lng: 12.5674 });
   const [zoom, setZoom] = useState(6);
-  const [properties, setProperties] = useState([]);
-
-  const loadProperties = async () => {
-    NProgress.start();
-    try {
-      setProperties(mockData.hits);
-    } catch (error) {
-      console.error('Error fetching properties:', error);
-    } finally {
-      NProgress.done();
-    }
-  };
 
   useEffect(() => {
-    loadProperties();
+    const simulateLoadProperties = async () => {
+      NProgress.start();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      NProgress.done();
+    };
+    simulateLoadProperties();
   }, []);
 
   const { isLoaded } = useJsApiLoader({
@@ -76,16 +70,12 @@ function Home() {
       <PlacesAutocomplete onPlaceSelected={handlePlaceSelect} />
       <Map isLoaded={isLoaded} center={mapCenter} zoom={zoom} onPositionChange={onStreetViewPositionChanged} />
       <MortgageCalculator />
+      <HeroBanner />
 
       <div>
         <h2>Properties</h2>
+        <FeaturedProperties featuredProperties={propertiesData.hits.slice(0, 5)} />
         <div>
-          {/* {mockData.hits.map((property) => (
-            <Property key={property.externalID} property={property} />
-          ))} */}
-          {properties.map((property) => (
-            <Property key={property.externalID} property={property} />
-          ))}
         </div>
       </div>
     </>
