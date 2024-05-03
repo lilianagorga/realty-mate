@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
 import ContactForm from './ContactForm';
-import TextContentBox from './TextContentBox';
+import TextContentBox from '../TextContentBox';
 
 const Contact = () => {
   return (
