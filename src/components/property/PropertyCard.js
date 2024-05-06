@@ -17,11 +17,17 @@ const PropertyCard = (property) => {
     sqSize,
     externalID } = usePropertyFormat(property);
 
+    const imageSrc = coverPhoto || '/images/noresult.svg';
+
+    if (!externalID) {
+      return <Text>Invalid property data</Text>;
+    }
+
   return (
     <Box marginBottom='4rem' backgroundColor='#fff'>
       <Link to={`/property/${externalID}`}>
         <Box 
-          backgroundImage={`url("${coverPhoto}")`} 
+          backgroundImage={`url("${imageSrc}")`} 
           height='250px'
           backgroundPosition='center center' 
           backgroundSize='cover' 

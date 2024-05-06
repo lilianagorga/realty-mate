@@ -1,34 +1,37 @@
-// import React, { useEffect, useState } from 'react';
-// import { getProperty } from "../../utils/fetchApi";
-// import { useParams } from 'react-router-dom';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Badge, Flex, Grid, GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 import { TbMapPin } from "react-icons/tb";
 import PropertyThumbnailSlider from "./PropertyThumbnailSlider";
 import PropertyStats from "./PropertyStats";
 import { usePropertyFormat } from "../../hooks/usePropertyFormat";
-import singleProperty from '../../data/property.json';
+import { getProperty } from '../../utils/fetchApi';
+import singlePropertyMock from '../../data/property.json';
+import { useParams } from 'react-router-dom';
 import TextContentBox from "../TextContentBox";
 
 
 const Property = () => {
-  const property = singleProperty;
+  
+  const [property, setProperty] = useState(null);
+  const { id } = useParams();
 
+  useEffect(() => {
+    const fetchProperty = async () => {
+      let data = null;
+      if (process.env.REACT_APP_USE_MOCK_DATA === 'true') {
+        data = singlePropertyMock;
+      } else {
+        try {
+          data = await getProperty(id);
+        } catch (error) {
+          console.error('Error fetching property:', error);
+        }
+      }
+      setProperty(data || {});
+    };
+    fetchProperty();
+  }, [id]);
 
-  // const [property, setProperty] = useState(singleProperty);
-
-  // useEffect(() => {
-  //   const loadProperty = async () => {
-  //     const data = await getProperty(id);
-  //     setProperty(data);
-  //   };
-
-  //   loadProperty();
-  // }, [id]);
-
-  // if (!property) {
-  //   return <div>Loading...</div>;
-  // }
   console.log(property);
   const {     
     address,
@@ -44,6 +47,10 @@ const Property = () => {
     description,
     amenities,
   } = usePropertyFormat(property);
+
+  if (!property || Object.keys(property).length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Box backgroundColor='#f7f8f9' paddingY='3rem'>

@@ -1,27 +1,28 @@
 export const usePropertyFormat = (property) => {
-  
-  const address = property.location.map((item) => item.name).join(", ");
-  const coverPhoto = property.coverPhoto.url;
-  const propertyType = `${property.category[0].name}, ${property.category[1].name}`;
-  const price = property.price.toLocaleString("en-US", {
+  if (!property) return {};
+
+  const address = property.location ? property.location.map((item) => item.name).join(", ") : 'Unknown Address';
+  const coverPhoto = property.coverPhoto ? property.coverPhoto.url : '/images/noresult.svg'; 
+  const propertyType = `${property.category[0]?.name || ''}, ${property.category[1]?.name || ''}`;
+  const price = property.price?.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
-  });
-  const title = property.title;
-  const rooms = property.rooms;
-  const baths = property.baths;
-  const purpose = property.purpose;
-  const sqSize = property.area.toFixed(2);
-  const externalID = property.externalID;
+  }) || 'N/A';
+  const title = property.title || 'No Title';
+  const rooms = property.rooms || 'N/A';
+  const baths = property.baths || 'N/A';
+  const purpose = property.purpose || 'N/A';
+  const sqSize = property.area ? property.area.toFixed(2) : 'N/A';
+  const externalID = property.externalID || 'N/A';
   
   const photos = property.photos?.map((photo) => photo.url) || [];
-  const description = property.description;
-  const coverVideoUrl = property.coverVideo.url;
+  const description = property.description || 'No Description';
+  const coverVideoUrl = property.coverVideo?.url || '';
   const coverVideo = coverVideoUrl.slice(coverVideoUrl.length - 11); 
   const panoramas = property.panoramas?.length ? property.panoramas[0].url : [];
-  const amenities = property.amenities?.flatMap(({amenities}) => amenities).map((item) => item.text)
-  const furnished = property.furnishingStatus;
+  const amenities = property.amenities?.flatMap(({ amenities }) => amenities).map((item) => item?.text || 'Unknown Amenity') || [];
+  const furnished = property.furnishingStatus || 'N/A';
 
   return {
     address,
@@ -42,3 +43,4 @@ export const usePropertyFormat = (property) => {
     furnished
   }
 }
+

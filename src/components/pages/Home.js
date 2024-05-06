@@ -4,7 +4,8 @@ import PlacesAutocomplete from '../../PlacesAutocomplete';
 import { useJsApiLoader } from '@react-google-maps/api';
 import MortgageCalculator from '../../MortgageCalculator';
 import FeaturedProperties from '../property/FeaturedProperties';
-import propertiesData  from '../../data/properties.json';
+import propertiesDataMock  from '../../data/properties.json';
+import { getProperties } from '../../utils/fetchApi';
 import HeroBanner from "../HeroBanner";
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
@@ -14,15 +15,30 @@ const libraries = ['places', 'marker'];
 function Home() {
   const [mapCenter, setMapCenter] = useState({ lat: 41.8719, lng: 12.5674 });
   const [zoom, setZoom] = useState(6);
+  const [propertiesData, setPropertiesData] = useState([]);
 
   useEffect(() => {
-    const simulateLoadProperties = async () => {
+    const fetchData = async () => {
       NProgress.start();
-      await new Promise(resolve => setTimeout(resolve, 500));
+      let data = [];
+      if (process.env.REACT_APP_USE_MOCK_DATA === 'false') {
+        try {
+          const response = await getProperties(5);
+          if (response.length > 0) {
+            data = response;
+          }
+        } catch (error) {
+          console.error('Error fetching properties:', error);
+        }
+      } else {
+        data = propertiesDataMock.hits || [];
+      }
+      setPropertiesData(data);
       NProgress.done();
     };
-    simulateLoadProperties();
+    fetchData();
   }, []);
+
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
@@ -73,10 +89,21 @@ function Home() {
       <HeroBanner />
 
       <div>
-        <h2>Properties</h2>
-        <FeaturedProperties featuredProperties={propertiesData.hits.slice(0, 5)} />
-        <div>
-        </div>
+      {process.env.REACT_APP_USE_MOCK_DATA === 'true' ? (
+          propertiesDataMock.hits.length ? (
+            <FeaturedProperties featuredProperties={propertiesDataMock.hits.slice(0, 5)} />
+          ) : (
+            <p>No properties found</p>
+          )
+        ) : process.env.REACT_APP_USE_MOCK_DATA === 'false' ? (
+          propertiesData.length ? (
+            <FeaturedProperties featuredProperties={propertiesData.slice(0, 5)} />
+          ) : (
+            <p>No properties found</p>
+          )
+        ) : (
+          <p>No properties found</p>
+        )}
       </div>
     </>
   );
