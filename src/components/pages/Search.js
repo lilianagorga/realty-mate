@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, SimpleGrid, Flex, Text } from '@chakra-ui/react';
-import propertiesData from '../../data/properties.json';
+import { getProperties } from '../../utils/fetchApi';
+import propertiesDataMock from '../../data/properties.json';
 import PropertyCard from '../property/PropertyCard';
 
 function Search() {
-  const properties = propertiesData.hits;
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let data = [];
+      if (process.env.REACT_APP_USE_MOCK_DATA === 'false') {
+        try {
+          const response = await getProperties(10);
+          if (response.length > 0) {
+            data = response;
+          }
+        } catch (error) {
+          console.error('Error fetching properties:', error);
+        }
+      } else {
+        data = propertiesDataMock.hits || [];
+      }
+      setProperties(data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <Box backgroundColor='#f7f8f9' padding='3rem'>
