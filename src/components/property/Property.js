@@ -5,7 +5,7 @@ import PropertyThumbnailSlider from "./PropertyThumbnailSlider";
 import PropertyStats from "./PropertyStats";
 import { usePropertyFormat } from "../../hooks/usePropertyFormat";
 import { getProperty } from '../../utils/fetchApi';
-import singlePropertyMock from '../../data/property.json';
+import propertiesMock from '../../data/property.json';
 import { useParams } from 'react-router-dom';
 import TextContentBox from "../TextContentBox";
 
@@ -19,7 +19,7 @@ const Property = () => {
     const fetchProperty = async () => {
       let data = null;
       if (process.env.REACT_APP_USE_MOCK_DATA === 'true') {
-        data = singlePropertyMock;
+        data = propertiesMock.find(prop => prop.externalID === id);
       } else {
         try {
           data = await getProperty(id);
