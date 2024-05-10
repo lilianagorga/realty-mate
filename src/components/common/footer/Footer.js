@@ -2,10 +2,26 @@ import React from 'react';
 import { Box, SimpleGrid, Text, Flex } from '@chakra-ui/react';
 import { services, about, ourOffices, workWithUs } from './footerConsts';
 import { HiHomeModern } from 'react-icons/hi2';
+import "../../../assets/css/footer.css";
+
 
 const Footer = () => {
   return (
     <Box backgroundColor='blue.600'>
+
+      <Box className='footerContact'>
+        <div className='container'>
+          <div className='send flex'>
+            <div className='text'>
+              <h1>Do You Have Questions ?</h1>
+              <p>We'll help you to grow your career and growth.</p>
+            </div>
+            <button className='btn5'>Contact Us Today</button>
+          </div>
+        </div>
+      </Box>
+
+
       <Box maxWidth='1280px' margin='0 auto' paddingY='3rem' paddingX={{ base: '2rem', sm: '0' }}>
         <SimpleGrid columns='4' color='whiteAlpha.700' gap='1.7rem' minChildWidth='150px'>
           <Flex flexDirection='column'>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer, Button } from '@chakra-ui/react';
 import { AiOutlineMail, AiOutlineSearch } from 'react-icons/ai';
-import { MdHome } from 'react-icons/md';
+import { MdHome, MdAttachMoney } from 'react-icons/md';
 import { FcMenu, FcHome, FcAbout } from 'react-icons/fc';
 import { BsSearch } from 'react-icons/bs';
 import { FiKey } from 'react-icons/fi';
@@ -11,7 +11,19 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <Flex p="2" borderBottom="1px" borderColor="gray.100" position="relative" style={{ zIndex: 1000 }}>
+    <Flex 
+      p="2" 
+      borderBottom="1px" 
+      borderColor="gray.100"
+      style={{ zIndex: 1000 }} 
+      as="nav"
+      position="fixed"
+      top="0"
+      w="100%"              
+      zIndex="1000"         
+      bg="white" 
+      shadow="sm"  
+    >
     <Button
         leftIcon={<MdHome />}
         colorScheme="teal"
@@ -41,9 +53,31 @@ const Navbar = () => {
         fontSize="xl"
         fontWeight="bold"
         onClick={() => navigate('/contact')}
+        mr="2"
       >
         Contact
       </Button>
+      <Button
+          leftIcon={<FcAbout />}
+          colorScheme="purple"
+          variant="outline"
+          fontSize="xl"
+          fontWeight="bold"
+          onClick={() => navigate('/about')}
+          mr="2"
+        >
+          About
+        </Button>
+        <Button
+          leftIcon={<MdAttachMoney />}
+          colorScheme="yellow"
+          variant="outline"
+          fontSize="xl"
+          fontWeight="bold"
+          onClick={() => navigate('/price')}
+        >
+          Price
+        </Button>
     <Spacer />
     <Box>
       <Menu>
@@ -55,7 +89,13 @@ const Navbar = () => {
           <MenuItem icon={<BsSearch />} onClick={() => navigate('/search')}>
             Search
           </MenuItem>
-          <MenuItem icon={<FcAbout />} onClick={() => navigate('/search?purpose=for-sale')}>
+          <MenuItem icon={<FcAbout />} onClick={() => navigate('/about')}>
+              About
+            </MenuItem>
+            <MenuItem icon={<MdAttachMoney />} onClick={() => navigate('/price')}>
+              Price
+            </MenuItem>
+          <MenuItem icon={<FiKey />} onClick={() => navigate('/search?purpose=for-sale')}>
             Buy Property
           </MenuItem>
           <MenuItem icon={<FiKey />} onClick={() => navigate('/search?purpose=for-rent')}>

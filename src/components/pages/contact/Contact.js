@@ -1,12 +1,21 @@
 import React from 'react';
 import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
 import ContactForm from './ContactForm';
-import TextContentBox from '../TextContentBox';
+import TextContentBox from '../../common/TextContentBox';
 
 const Contact = () => {
   return (
-    <Box backgroundColor='#f7f8f9' paddingY='3rem'>
-      <Grid templateColumns='repeat(6, 1fr)' gap='5' maxWidth='1280px' margin='0 auto'>
+    <Box py={3} my={20}>
+      <Grid 
+        templateColumns='repeat(6, 1fr)' 
+        gap='5' 
+        maxWidth='1280px' 
+        margin='0 auto' 
+        shadow="xl"
+        p={5}
+        bg='brand.100'
+        borderRadius="lg"
+      >
         <GridItem colSpan={{ base: 6, sm: 4 }}>
           <TextContentBox title='Contact Us'>
             <ContactForm />
@@ -15,14 +24,14 @@ const Contact = () => {
         <GridItem colSpan={{ base: 6, sm: 2 }}>
           <TextContentBox title='For Inquiries Contact:'>
             <Text fontWeight='light' color='gray.600' fontSize='1rem' marginBottom='1rem'>
-              Linnet Cubin <br />
+              Laura Rossi <br />
               Public Relations Manager <br />
-              774 NE 84th Miami, FL 33879
+              Via Dante 12, 20121 Milano, Italia
             </Text>
             <Text fontWeight='light' color='gray.600' fontSize='1rem' marginBottom='1rem'>
-              Rodd Epsley <br />
+              Luca Bianchi <br />
               Public Relations Manager <br />
-              774 NE 84th Miami, FL 33879
+              Via Dante 12, 20121 Milano, Italia
             </Text>
           </TextContentBox>
         </GridItem>

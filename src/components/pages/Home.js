@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Box, VStack, Heading, Flex, Grid, GridItem } from '@chakra-ui/react';
 import Map from '../../Map';
 import PlacesAutocomplete from '../../PlacesAutocomplete';
 import { useJsApiLoader } from '@react-google-maps/api';
@@ -9,6 +10,8 @@ import { getProperties } from '../../utils/fetchApi';
 import HeroBanner from "../HeroBanner";
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import Team from '../team/Team';
+import Price from '../price/Price';
 
 const libraries = ['places', 'marker'];
 
@@ -82,13 +85,22 @@ function Home() {
   };
 
   return (
-    <>
-      <PlacesAutocomplete onPlaceSelected={handlePlaceSelect} />
-      <Map isLoaded={isLoaded} center={mapCenter} zoom={zoom} onPositionChange={onStreetViewPositionChanged} />
-      <MortgageCalculator />
-      <HeroBanner />
-
-      <div>
+    <Box mt={24} m="auto">
+      <VStack textAlign="center" alignItems="center" spacing={4} ml={72} mb={4} mt={20}>
+        <Heading as="h2" size="lg">Explore Your Next Home</Heading>
+        <PlacesAutocomplete onPlaceSelected={handlePlaceSelect} />
+      </VStack>
+      <Grid templateColumns="repeat(3, 1fr)" gap={20}>
+        <GridItem colSpan={[3, 3, 1]}>
+          <MortgageCalculator />
+        </GridItem>
+        <GridItem colSpan={[3, 3, 2]}>
+          <Box width="full" height="400px" overflow="hidden">
+            <Map isLoaded={isLoaded} center={mapCenter} zoom={zoom} onPositionChange={onStreetViewPositionChanged} />
+          </Box>
+        </GridItem>
+      </Grid>
+      <Flex direction="column" mt={10}>
       {process.env.REACT_APP_USE_MOCK_DATA === 'true' ? (
           propertiesDataMock.hits.length ? (
             <FeaturedProperties featuredProperties={propertiesDataMock.hits.slice(0, 5)} />
@@ -104,8 +116,11 @@ function Home() {
         ) : (
           <p>No properties found</p>
         )}
-      </div>
-    </>
+      </Flex>
+      <Team />
+      <Price />
+      <HeroBanner />
+    </Box>
   );
 }
 

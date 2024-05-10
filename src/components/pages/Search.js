@@ -28,7 +28,7 @@ function Search() {
   }, []);
 
   return (
-    <Box backgroundColor='#f7f8f9' padding='3rem'>
+    <Box backgroundColor='brand.100' p={12} mt={10}>
       <Box maxWidth='1280px' margin='0 auto'>
         <SimpleGrid columns={{base: '1', sm: '3'}} gap={{base: '0', sm: '2rem'}}>
           {properties.map((property) => (
@@ -38,9 +38,9 @@ function Search() {
         {properties.length === 0 && (
           <Flex justifyContent='center' alignItems='center' flexDir='column' marginTop='5' marginBottom='5'>
             <img src="/images/noresult.svg" alt='no result' style={{ width: "10%", height: "auto" }} />
-          <Text fontSize='xl' marginTop='3'>No Result Found.</Text>
-        </Flex>
-      )}
+            <Text fontSize='xl' marginTop='3'>No Result Found.</Text>
+          </Flex>
+        )}
       </Box>
     </Box>
   );

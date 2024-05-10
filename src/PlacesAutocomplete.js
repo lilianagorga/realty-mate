@@ -1,4 +1,6 @@
 import React, { useRef, useEffect } from 'react';
+import { Input, Box } from '@chakra-ui/react';
+
 function PlacesAutocomplete({ onPlaceSelected }) {
   const autocompleteRef = useRef(null);
   
@@ -17,9 +19,9 @@ function PlacesAutocomplete({ onPlaceSelected }) {
   }, [onPlaceSelected]);
 
   return (
-    <div>
-      <input id="autocomplete" placeholder="Inserisci un indirizzo" type="text" />
-    </div>
+    <Box width="880px">
+      <Input id="autocomplete" placeholder="Inserisci un indirizzo" type="text" />
+    </Box>
   );
 }
 
