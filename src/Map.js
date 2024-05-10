@@ -56,7 +56,7 @@ function Map({ center, zoom, onPositionChange, isLoaded }) {
       zoom={zoom}
     >
     <StreetViewPanorama options={panoramaOptions} onPositionChanged={handlePositionChange} />
-  </GoogleMap>
+    </GoogleMap>
   );
 }
 

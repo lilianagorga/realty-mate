@@ -7,7 +7,7 @@ import { usePropertyFormat } from "../../hooks/usePropertyFormat";
 import { getProperty } from '../../utils/fetchApi';
 import propertiesMock from '../../data/property.json';
 import { useParams } from 'react-router-dom';
-import TextContentBox from "../TextContentBox";
+import TextContentBox from "../common/TextContentBox";
 
 
 const Property = () => {
