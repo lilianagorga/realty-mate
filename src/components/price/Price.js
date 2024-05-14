@@ -1,17 +1,18 @@
 import React from "react";
 import Heading from "../common/Heading";
-import "../../assets/css/price.css";
+import { Box } from "@chakra-ui/react";
 import PriceCard from "./PriceCard";
+import { CustomContainer } from "../common/Customcontainer";
 
 const Price = () => {
   return (
     <>
-      <section className='price padding'>
-        <div className='container'>
-          <Heading title='Select Your Package' subtitle='At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores' />
+      <Box textAlign="center" p="80px 0" >
+        <CustomContainer>
+          <Heading title="Select Your Package" subtitle="Choose the perfect plan tailored to your needs." />
           <PriceCard />
-        </div>
-      </section>
+        </CustomContainer>
+      </Box>
     </>
   )
 }

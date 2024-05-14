@@ -74,9 +74,9 @@ const Navbar = () => {
           variant="outline"
           fontSize="xl"
           fontWeight="bold"
-          onClick={() => navigate('/price')}
+          onClick={() => navigate('/pricing')}
         >
-          Price
+          Pricing
         </Button>
     <Spacer />
     <Box>
@@ -92,8 +92,8 @@ const Navbar = () => {
           <MenuItem icon={<FcAbout />} onClick={() => navigate('/about')}>
               About
             </MenuItem>
-            <MenuItem icon={<MdAttachMoney />} onClick={() => navigate('/price')}>
-              Price
+            <MenuItem icon={<MdAttachMoney />} onClick={() => navigate('/pricing')}>
+              Pricing
             </MenuItem>
           <MenuItem icon={<FiKey />} onClick={() => navigate('/search?purpose=for-sale')}>
             Buy Property

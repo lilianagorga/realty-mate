@@ -1,29 +1,34 @@
 import React from 'react';
-import { Box, SimpleGrid, Text, Flex } from '@chakra-ui/react';
+import { Box, SimpleGrid, Text, Flex, Heading, Button } from '@chakra-ui/react';
 import { services, about, ourOffices, workWithUs } from './footerConsts';
 import { HiHomeModern } from 'react-icons/hi2';
-import "../../../assets/css/footer.css";
+import { CustomContainer } from '../Customcontainer';
+import { CustomFlexContainer } from '../CustomFlexContainer';
 
 
 const Footer = () => {
   return (
     <Box backgroundColor='blue.600'>
-
-      <Box className='footerContact'>
-        <div className='container'>
-          <div className='send flex'>
-            <div className='text'>
-              <h1>Do You Have Questions ?</h1>
-              <p>We'll help you to grow your career and growth.</p>
-            </div>
-            <button className='btn5'>Contact Us Today</button>
-          </div>
-        </div>
+      <Box
+        bg="#27ae60"
+        p="40px 0"
+        color="white"
+        textAlign="center" 
+      >
+        <CustomContainer variant="footer">
+          <CustomFlexContainer>
+            <Box>
+              <Heading as="h1" color="white" fontSize="40px">Do You Have Questions ?</Heading>
+              <Text color="white" fontWeight="bold" m="20px 0">We'll help you to grow your career and growth.</Text>
+            </Box>
+            <Button variant="contactUs">Contact Us Today</Button>
+          </CustomFlexContainer>
+        </CustomContainer>
       </Box>
 
 
       <Box maxWidth='1280px' margin='0 auto' paddingY='3rem' paddingX={{ base: '2rem', sm: '0' }}>
-        <SimpleGrid columns='4' color='whiteAlpha.700' gap='1.7rem' minChildWidth='150px'>
+        <SimpleGrid columns={{ base: 1, md: 4 }} color='whiteAlpha.700' gap='1.7rem' minChildWidth='150px'>
           <Flex flexDirection='column'>
             <FooterHeader title='Services' />
             {services.map(item => (
@@ -65,14 +70,14 @@ export default Footer;
 
 const FooterLink = ({ name, link }) => {
   return (
-    <Text>
-      <a href={link}>{name}</a>
+    <Text as="a" href={link} color="inherit" _hover={{ textDecoration: "underline" }}>
+      {name}
     </Text>
   );
 }
 
 const FooterHeader = ({ title }) => {
   return (
-    <Text as='h4' fontWeight='light' fontSize='xl' marginBottom='1rem'>{title}</Text>
+    <Text as='h4' fontWeight='light' fontSize='xl' mb='1rem'>{title}</Text>
   );
 }
