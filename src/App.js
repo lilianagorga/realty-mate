@@ -11,7 +11,7 @@ import Navbar from './components/common/Navbar';
 import Property from './components/property/Property';
 import Contact from './components/pages/contact/Contact';
 import Footer from './components/common/footer/Footer';
-import Price from './components/price/Price';
+import Pricing from './components/pages/Pricing';
 
 
 
@@ -28,7 +28,7 @@ function App() {
             <Route path="/property/:id" element={<Property />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/price" element={<Price />} />
+            <Route path="/pricing" element={<Pricing />} />
           </Routes>
           <Footer />
         </SearchProvider>

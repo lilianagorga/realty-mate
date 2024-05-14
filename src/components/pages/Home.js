@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, VStack, Heading, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Box, VStack, Flex, Grid, GridItem } from '@chakra-ui/react';
 import Map from '../../Map';
 import PlacesAutocomplete from '../../PlacesAutocomplete';
 import { useJsApiLoader } from '@react-google-maps/api';
@@ -87,7 +87,6 @@ function Home() {
   return (
     <Box mt={24} m="auto">
       <VStack textAlign="center" alignItems="center" spacing={4} ml={72} mb={4} mt={20}>
-        <Heading as="h2" size="lg">Explore Your Next Home</Heading>
         <PlacesAutocomplete onPlaceSelected={handlePlaceSelect} />
       </VStack>
       <Grid templateColumns="repeat(3, 1fr)" gap={20}>
