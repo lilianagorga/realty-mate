@@ -24,7 +24,7 @@ function Home() {
     const fetchData = async () => {
       NProgress.start();
       let data = [];
-      if (process.env.REACT_APP_USE_MOCK_DATA === 'false') {
+      if (import.meta.env.VITE_USE_MOCK_DATA === 'false') {
         try {
           const response = await getProperties(5);
           if (response.length > 0) {
@@ -44,7 +44,7 @@ function Home() {
 
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY,
     libraries: libraries
   });
 
@@ -100,13 +100,13 @@ function Home() {
         </GridItem>
       </Grid>
       <Flex direction="column" mt={10}>
-      {process.env.REACT_APP_USE_MOCK_DATA === 'true' ? (
+      {import.meta.env.VITE_USE_MOCK_DATA === 'true' ? (
           propertiesDataMock.hits.length ? (
             <FeaturedProperties featuredProperties={propertiesDataMock.hits.slice(0, 5)} />
           ) : (
             <p>No properties found</p>
           )
-        ) : process.env.REACT_APP_USE_MOCK_DATA === 'false' ? (
+        ) : import.meta.env.VITE_USE_MOCK_DATA === 'false' ? (
           propertiesData.length ? (
             <FeaturedProperties featuredProperties={propertiesData.slice(0, 5)} />
           ) : (

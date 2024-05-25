@@ -35,6 +35,7 @@ const PropertyCard = (property) => {
           display='flex' 
           flexDirection='column'
           justifyContent='space-between'
+          role='img'
         >
           <Box margin='1rem'>
             <Badge colorScheme='green'>{purpose}</Badge>
