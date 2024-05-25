@@ -10,7 +10,7 @@ function Search() {
   useEffect(() => {
     const fetchData = async () => {
       let data = [];
-      if (process.env.REACT_APP_USE_MOCK_DATA === 'false') {
+      if (import.meta.env.VITE_USE_MOCK_DATA === 'false') {
         try {
           const response = await getProperties(10);
           if (response.length > 0) {

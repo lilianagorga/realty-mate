@@ -4,7 +4,7 @@ import propertyMock from '../data/property.json';
 export const baseUrl= 'https://bayut.p.rapidapi.com';
 
 export const fetchApi = async (url, params = {}) => {
-  if (process.env.REACT_APP_USE_MOCK_DATA === 'true') {
+  if (import.meta.env.VITE_USE_MOCK_DATA === 'true') {
     if (url.includes('/properties/list')) {
       return { data: propertiesMock };
     }
@@ -17,7 +17,7 @@ export const fetchApi = async (url, params = {}) => {
     try {
       const { data } = await axios.get(`${baseUrl}${url}`, {
         headers: {
-          'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
+          'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
           'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
         },
         params,

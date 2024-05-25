@@ -18,7 +18,7 @@ const Property = () => {
   useEffect(() => {
     const fetchProperty = async () => {
       let data = null;
-      if (process.env.REACT_APP_USE_MOCK_DATA === 'true') {
+      if (import.meta.env.VITE_USE_MOCK_DATA === 'true') {
         data = propertiesMock.find(prop => prop.externalID === id);
       } else {
         try {
