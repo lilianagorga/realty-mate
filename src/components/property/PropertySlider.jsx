@@ -4,8 +4,8 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import PropertyCard from './PropertyCard';
-import { useIsDesktop } from "../../hooks/useIsDesktop";
+import PropertyCard from './PropertyCard.jsx';
+import { useIsDesktop } from "../../hooks/useIsDesktop.js";
 
 const PropertySlider = ({ featuredProperties }) => {
   const { isDesktop } = useIsDesktop();

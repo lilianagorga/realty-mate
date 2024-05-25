@@ -1,8 +1,8 @@
 import React from "react";
-import Heading from "../common/Heading";
+import Heading from "../common/Heading.jsx";
 import { Box } from "@chakra-ui/react";
-import PriceCard from "./PriceCard";
-import { CustomContainer } from "../common/Customcontainer";
+import PriceCard from "./PriceCard.jsx";
+import { CustomContainer } from "../common/Customcontainer.jsx";
 
 const Price = () => {
   return (

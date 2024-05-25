@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Fade, Text } from "@chakra-ui/react";
-import HeroForm from "./HeroForm";
+import HeroForm from "./HeroForm.jsx";
 
 const HeroBanner = () => {
   return (

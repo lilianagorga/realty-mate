@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, SimpleGrid, Text, Flex, Heading, Button } from '@chakra-ui/react';
 import { services, about, ourOffices, workWithUs } from './footerConsts';
 import { HiHomeModern } from 'react-icons/hi2';
-import { CustomContainer } from '../Customcontainer';
-import { CustomFlexContainer } from '../CustomFlexContainer';
+import { CustomContainer } from '../Customcontainer.jsx';
+import { CustomFlexContainer } from '../CustomFlexContainer.jsx';
 
 
 const Footer = () => {

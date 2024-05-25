@@ -2,10 +2,10 @@ import React from "react";
 import { Box, Grid, Button, Image, Heading as ChakraHeading, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faMapMarkerAlt, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
-import Heading from "../common/Heading";
-import { team } from "../../constants/data";
-import { CustomContainer } from "../common/Customcontainer";
-import { CustomFlexContainer } from "../common/CustomFlexContainer";
+import Heading from "../common/Heading.jsx";
+import { team } from "../../constants/data.jsx";
+import { CustomContainer } from "../common/Customcontainer.jsx";
+import { CustomFlexContainer } from "../common/CustomFlexContainer.jsx";
 
 const Team = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, SimpleGrid, Text } from '@chakra-ui/react';
 import { testimonials } from './testimonialConsts';
-import TestimonialCard from './TestimonialCard';
+import TestimonialCard from './TestimonialCard.jsx';
 
 const Testimonials = () => {
   return (

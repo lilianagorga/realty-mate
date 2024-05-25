@@ -1,17 +1,17 @@
 import React from 'react';
 import './assets/css/app.css';
 import { ChakraProvider } from '@chakra-ui/react';
-import { SearchProvider } from './context/SearchContext';
+import { SearchProvider } from './context/SearchContext.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import theme from './assets/js/theme';
-import Home from './components/pages/Home';
-import Search from './components/pages/Search';
-import About from './components/pages/About';
-import Navbar from './components/common/Navbar';
-import Property from './components/property/Property';
-import Contact from './components/pages/contact/Contact';
-import Footer from './components/common/footer/Footer';
-import Pricing from './components/pages/Pricing';
+import Home from './components/pages/Home.jsx';
+import Search from './components/pages/Search.jsx';
+import About from './components/pages/About.jsx';
+import Navbar from './components/common/Navbar.jsx';
+import Property from './components/property/Property.jsx';
+import Contact from './components/pages/contact/Contact.jsx';
+import Footer from './components/common/footer/Footer.jsx';
+import Pricing from './components/pages/Pricing.jsx';
 
 
 
@@ -24,7 +24,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/search/" element={<Search />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/property/:id" element={<Property />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/about" element={<About />} />

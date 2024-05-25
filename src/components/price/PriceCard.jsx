@@ -1,7 +1,7 @@
 import React from "react";
-import { price } from "../../constants/data";
+import { price } from "../../constants/data.jsx";
 import { Box, Button, Heading, Text, UnorderedList, ListItem } from "@chakra-ui/react";
-import { CustomFlexContainer } from "../common/CustomFlexContainer";
+import { CustomFlexContainer } from "../common/CustomFlexContainer.jsx";
 
 const PriceCard = () => {
   return (
