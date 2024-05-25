@@ -1,27 +1,40 @@
-import axios from "axios"
+import axios from "axios";
+import propertiesMock from '../data/properties.json';
+import propertyMock from '../data/property.json';
 export const baseUrl= 'https://bayut.p.rapidapi.com';
 
 export const fetchApi = async (url, params = {}) => {
-  try {
-    const { data } = await axios.get(`${baseUrl}${url}`, {
-      headers: {
-        'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
-        'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
-      },
-      params,
-    });
-    console.log('API Response:', data); 
-    return data;
-  } catch (error) {
-    if (error.response) {
-      console.error('API Error:', error.response.status, error.response.data);
-      if (error.response.status === 429) {
-        console.warn('Too many requests, wait before to try again.');
-      }
-    } else {
-      console.error('Generic error:', error.message);
+  if (process.env.REACT_APP_USE_MOCK_DATA === 'true') {
+    if (url.includes('/properties/list')) {
+      return { data: propertiesMock };
     }
-    return null;
+    if (url.includes('/properties/detail')) {
+      const { externalID } = params;
+      const property = propertyMock.find(p => p.externalID === externalID);
+      return { data: property };
+    }
+  } else {
+    try {
+      const { data } = await axios.get(`${baseUrl}${url}`, {
+        headers: {
+          'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
+          'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
+        },
+        params,
+      });
+      console.log('API Response:', data); 
+      return data;
+    } catch (error) {
+      if (error.response) {
+        console.error('API Error:', error.response.status, error.response.data);
+        if (error.response.status === 429) {
+          console.warn('Too many requests, wait before to try again.');
+        }
+      } else {
+        console.error('Generic error:', error.message);
+      }
+      return null;
+    }
   }
 };
 

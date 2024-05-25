@@ -3,7 +3,8 @@ import { extendTheme } from '@chakra-ui/react';
 const theme = extendTheme({
   colors: {
     brand: {
-      100: '#f7f8f9', 
+      100: '#f7f8f9',
+      200: '#edf2f7',
     },
     team: {
       100: '#f7f9fc',
@@ -22,8 +23,12 @@ const theme = extendTheme({
       200: '#27ae601f',
       300: '#dc3848',
       400: '#27ae60'
-    }
     },
+    navbar: {
+      100: '#edf2f7',
+      200: '#ffffff'
+    }
+  },
   shadows: {
     teamShadow: "0 0 20px 0 rgba(112, 121, 138, 0.18)"
   },

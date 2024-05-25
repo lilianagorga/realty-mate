@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Box, VStack, Flex, Grid, GridItem } from '@chakra-ui/react';
-import Map from '../../Map';
-import PlacesAutocomplete from '../../PlacesAutocomplete';
+import Map from '../../Map.jsx';
+import PlacesAutocomplete from '../../PlacesAutocomplete.jsx';
 import { useJsApiLoader } from '@react-google-maps/api';
-import MortgageCalculator from '../../MortgageCalculator';
-import FeaturedProperties from '../property/FeaturedProperties';
+import MortgageCalculator from '../../MortgageCalculator.jsx';
+import FeaturedProperties from '../property/FeaturedProperties.jsx';
 import propertiesDataMock  from '../../data/properties.json';
-import { getProperties } from '../../utils/fetchApi';
-import HeroBanner from "../HeroBanner";
+import { getProperties } from '../../utils/fetchApi.js';
+import HeroBanner from "../HeroBanner.jsx";
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import Team from '../team/Team';
-import Price from '../price/Price';
+import Team from '../team/Team.jsx';
+import Price from '../price/Price.jsx';
 
 const libraries = ['places', 'marker'];
 

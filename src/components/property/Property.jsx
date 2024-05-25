@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Box, Badge, Flex, Grid, GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 import { TbMapPin } from "react-icons/tb";
-import PropertyThumbnailSlider from "./PropertyThumbnailSlider";
-import PropertyStats from "./PropertyStats";
+import PropertyThumbnailSlider from "./PropertyThumbnailSlider.jsx";
+import PropertyStats from "./PropertyStats.jsx";
 import { usePropertyFormat } from "../../hooks/usePropertyFormat";
 import { getProperty } from '../../utils/fetchApi';
 import propertiesMock from '../../data/property.json';
 import { useParams } from 'react-router-dom';
-import TextContentBox from "../common/TextContentBox";
+import TextContentBox from "../common/TextContentBox.jsx";
 
 
 const Property = () => {

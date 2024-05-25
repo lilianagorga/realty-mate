@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from '@chakra-ui/react';
-import Banner from "../common/Banner";
-import PriceCard from "../price/PriceCard";
-import { CustomContainer } from "../common/Customcontainer";
+import Banner from "../common/Banner.jsx";
+import PriceCard from "../price/PriceCard.jsx";
+import { CustomContainer } from "../common/Customcontainer.jsx";
 
 const Pricing = () => {
   return (

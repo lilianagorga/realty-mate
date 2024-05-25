@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text } from '@chakra-ui/react';
-import PropertySlider from './PropertySlider';
+import PropertySlider from './PropertySlider.jsx';
 
 const FeaturedProperties = ({ featuredProperties }) => {
   return (

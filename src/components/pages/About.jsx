@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Text, Button, Image } from '@chakra-ui/react';
-import Partners from '../partners/Partners';
-import Testimonials from '../testimonials/Testimonials';
-import Banner from "../common/Banner";
-import Heading from "../common/Heading";
+import Partners from '../partners/Partners.jsx';
+import Testimonials from '../testimonials/Testimonials.jsx';
+import Banner from "../common/Banner.jsx";
+import Heading from "../common/Heading.jsx";
 
 const About = () => {
   return (

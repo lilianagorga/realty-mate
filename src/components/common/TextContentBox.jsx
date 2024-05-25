@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Divider, Text } from "@chakra-ui/react";
 
 const TextContentBox = ({ title, children }) => {

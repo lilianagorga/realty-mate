@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Flex, Text, Divider, Center } from '@chakra-ui/react';
 import { TbBath, TbBed, TbRuler } from 'react-icons/tb';
 

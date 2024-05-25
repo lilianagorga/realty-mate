@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Box, SimpleGrid, Flex, Text } from '@chakra-ui/react';
-import { getProperties } from '../../utils/fetchApi';
+import { getProperties } from '../../utils/fetchApi.js';
 import propertiesDataMock from '../../data/properties.json';
-import PropertyCard from '../property/PropertyCard';
+import PropertyCard from '../property/PropertyCard.jsx';
 
 function Search() {
   const [properties, setProperties] = useState([]);
