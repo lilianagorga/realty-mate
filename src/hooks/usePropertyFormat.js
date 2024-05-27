@@ -3,7 +3,7 @@ export const usePropertyFormat = (property) => {
 
   const address = property.location ? property.location.map((item) => item.name).join(", ") : 'Unknown Address';
   const coverPhoto = property.coverPhoto ? property.coverPhoto.url : '/images/noresult.svg'; 
-  const propertyType = `${property.category[0]?.name || ''}, ${property.category[1]?.name || ''}`;
+  const propertyType = `${property.category?.[0]?.name || ''}, ${property.category?.[1]?.name || ''}`;
   const price = property.price?.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
@@ -43,4 +43,3 @@ export const usePropertyFormat = (property) => {
     furnished
   }
 }
-

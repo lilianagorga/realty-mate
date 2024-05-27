@@ -44,7 +44,7 @@ const About = () => {
             </Button>
           </Box>
           <Box mt={{ base: "50px", md: "20px" }}>
-            <Image src='./immio.jpg' alt='' />
+            <Image src='./immio.jpg' alt='' data-testid="about-image" />
           </Box>
         </Box>
       </Box>

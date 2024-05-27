@@ -30,8 +30,8 @@ const Contact = () => {
             </Text>
             <Text fontWeight='light' color='gray.600' fontSize='1rem' marginBottom='1rem'>
               Luca Bianchi <br />
-              Public Relations Manager <br />
-              Via Dante 12, 20121 Milano, Italia
+              Customer Service Manager <br />
+              Via Verdi 15, 20122 Milano, Italia
             </Text>
           </TextContentBox>
         </GridItem>

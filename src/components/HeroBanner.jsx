@@ -6,6 +6,7 @@ const HeroBanner = () => {
   return (
     <Fade in>
       <Box 
+        role="banner"
         position='relative' 
         minHeight={{ base:'110vh', sm:'60vh' }}
         backgroundPosition="center"

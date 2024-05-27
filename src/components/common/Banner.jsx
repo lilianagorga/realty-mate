@@ -24,8 +24,9 @@ const Banner = ({ name, title, cover }) => {
           <Text fontSize="lg">{name}</Text>
           <Heading as="h1" fontSize={{ base: "30px", md: "40px" }} fontWeight="500">{title}</Heading>
         </CustomContainer>
-        <Image  src={cover}
-          alt=""
+        <Image 
+          src={cover}
+          alt="Banner image"
           height={{ base: "30vh", md: "40vh" }}
           position="absolute"
           top="0"
