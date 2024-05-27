@@ -103,6 +103,7 @@ const Team = () => {
                         bg="team.500" 
                         borderRadius="full" 
                         m="5px"
+                        data-testid={`icon-${icon.props.className.split(' ')[1]}`}
                       >
                         <Box as="span">{icon}</Box>
                       </ListItem>
