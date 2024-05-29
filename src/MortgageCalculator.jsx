@@ -59,7 +59,7 @@ function MortgageCalculator() {
           </form>
           {monthlyPayment && (
             <Text mt={2}>
-              Monthly Payment: <strong>${monthlyPayment}</strong>
+              Monthly Payment: <strong>€{monthlyPayment}</strong>
             </Text>
           )}
         </VStack>

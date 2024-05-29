@@ -4,7 +4,7 @@ import { getProperties } from '../../utils/fetchApi.js';
 import propertiesDataMock from '../../data/properties.json';
 import PropertyCard from '../property/PropertyCard.jsx';
 
-function Search() {
+function Properties() {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
@@ -46,4 +46,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default Properties;

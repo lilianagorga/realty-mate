@@ -7,6 +7,7 @@ import { vi, describe, it, beforeEach, afterEach } from 'vitest';
 import FeaturedProperties from '../components/property/FeaturedProperties.jsx';
 import propertiesDataMock from '../data/properties.json';
 import theme from '../assets/js/theme';
+import { convertToEuro } from '../utils/currency.js';
 
 let propertiesDataMockBackup;
 
@@ -32,9 +33,10 @@ describe('FeaturedProperties Component', () => {
     expect(screen.getByText(/A Selection of our best properties/i)).toBeInTheDocument();
 
     propertiesDataMock.hits.slice(0, 5).forEach(property => {
+      const convertedPrice = convertToEuro(property.price); 
       expect(screen.getByText(property.title)).toBeInTheDocument();
       expect(screen.getByText((content, element) => {
-        return element.tagName.toLowerCase() === 'p' && content.includes(property.price.toLocaleString());
+        return element.tagName.toLowerCase() === 'p' && content.includes(convertedPrice);
       })).toBeInTheDocument();
     });
   });

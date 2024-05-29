@@ -35,7 +35,7 @@ describe('Navbar', () => {
     );
 
     expect(screen.getByRole('button', { name: /home/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /properties/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /contact/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /about/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /pricing/i })).toBeInTheDocument();
@@ -52,8 +52,8 @@ describe('Navbar', () => {
     await userEvent.click(screen.getByRole('button', { name: /home/i }));
     expect(screen.getByTestId('location-display')).toHaveTextContent('/');
 
-    await userEvent.click(screen.getByRole('button', { name: /search/i }));
-    expect(screen.getByTestId('location-display')).toHaveTextContent('/search');
+    await userEvent.click(screen.getByRole('button', { name: /properties/i }));
+    expect(screen.getByTestId('location-display')).toHaveTextContent('/properties');
 
     await userEvent.click(screen.getByRole('button', { name: /contact/i }));
     expect(screen.getByTestId('location-display')).toHaveTextContent('/contact');

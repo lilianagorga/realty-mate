@@ -42,10 +42,10 @@ const Navbar = () => {
         variant="outline"
         fontSize="xl"
         fontWeight="bold"
-        onClick={() => navigate('/search')}
+        onClick={() => navigate('/properties')}
         mr="2"
       >
-        Search
+        Properties
       </Button>
       <Button
         leftIcon={<AiOutlineMail />}
@@ -87,8 +87,8 @@ const Navbar = () => {
           <MenuItem icon={<FcHome />} onClick={() => navigate('/')}>
             Home
           </MenuItem>
-          <MenuItem icon={<BsSearch />} onClick={() => navigate('/search')}>
-            Search
+          <MenuItem icon={<BsSearch />} onClick={() => navigate('/properties')}>
+            Properties
           </MenuItem>
           <MenuItem icon={<FcAbout />} onClick={() => navigate('/about')}>
               About

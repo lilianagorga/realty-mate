@@ -6,6 +6,7 @@ import PriceCard from '../components/price/PriceCard';
 import theme from '../assets/js/theme';
 import { price } from '../constants/data';
 import { expect } from 'vitest';
+import { convertToEuro } from '../utils/currency';
 
 describe('PriceCard Component', () => {
   test('renders the PriceCard component with correct plans', () => {
@@ -20,7 +21,8 @@ describe('PriceCard Component', () => {
       const priceTextElements = screen.getAllByText(item.ptext);
       expect(priceTextElements.length).toBeGreaterThan(0);
       expect(priceTextElements.length).toBeLessThanOrEqual(price.length);
-      const priceRegex = new RegExp(`\\$${item.price}`);
+      const convertedPrice = convertToEuro(item.price);
+      const priceRegex = new RegExp(`€${convertedPrice}`);
       const priceElement = screen.getByText((content, element) => {
         const hasText = (text) => priceRegex.test(text);
         const elementHasText = hasText(element.textContent);

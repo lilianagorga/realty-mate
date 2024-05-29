@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { vi } from 'vitest';
 import '@testing-library/jest-dom';
 import propertyMock from '../data/property.json';
+import { convertToEuro } from '../utils/currency.js';
 
 vi.mock('react-router-dom', async (importOriginal) => {
   const actual = await importOriginal();
@@ -32,7 +33,9 @@ describe('Property Component', () => {
     expect(await screen.findByText(/6679108/i)).toBeInTheDocument();
     expect(await screen.findByText(/for-sale/i)).toBeInTheDocument();
 
-    expect(await screen.findByText(/\$?800,000/i)).toBeInTheDocument();
+    const convertedPrice = convertToEuro(800000).replace('€', '');
+    const priceRegex = new RegExp(`€${convertedPrice}`);
+    expect(await screen.findByText(priceRegex)).toBeInTheDocument();
 
     expect(await screen.findByText(/1 Bedroom/i)).toBeInTheDocument();
     expect(await screen.findByText(/1 Bathroom/i)).toBeInTheDocument();

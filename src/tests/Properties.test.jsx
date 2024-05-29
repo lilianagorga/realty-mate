@@ -1,11 +1,10 @@
-// src/tests/Search.test.jsx
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { expect, vi } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import Search from '../components/pages/Search';
+import Properties from '../components/pages/Properties';
 import propertiesDataMock from '../data/properties.json';
 import * as fetchApi from '../utils/fetchApi';
 import theme from '../assets/js/theme';
@@ -14,12 +13,12 @@ vi.mock('../utils/fetchApi.js', () => ({
   getProperties: vi.fn(() => Promise.resolve(propertiesDataMock.hits))
 }));
 
-describe('Search Component', () => {
+describe('Properties Component', () => {
   test('renders the list of properties', async () => {
     render(
       <ChakraProvider theme={theme}>
         <BrowserRouter>
-          <Search />
+          <Properties />
         </BrowserRouter>
       </ChakraProvider>
     );
@@ -52,7 +51,7 @@ describe('Search Component', () => {
     render(
       <ChakraProvider theme={theme}>
         <BrowserRouter>
-          <Search />
+          <Properties />
         </BrowserRouter>
       </ChakraProvider>
     );
