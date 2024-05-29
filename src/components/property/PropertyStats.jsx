@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Flex, Text, Divider, Center } from '@chakra-ui/react';
 import { TbBath, TbBed, TbRuler } from 'react-icons/tb';
 
-const PropertyStats = ({ rooms, baths, price, sqSize }) => {
+const PropertyStats = ({ rooms = 'N/A', baths = 'N/A', price = 'N/A', sqSize = 'N/A' }) => {
   return (
     <Box backgroundColor='white' padding='1.5rem' marginBottom='1rem'>
       <Flex 
@@ -16,7 +16,7 @@ const PropertyStats = ({ rooms, baths, price, sqSize }) => {
       >
         <Flex flexDirection='column' justifyContent='center' alignItems='center' gap='0.3rem'>
           <Text>BEDS</Text>
-          <Flex alignItems='center' gap='0.5rem'>
+          <Flex alignItems='center' gap='0.5rem' data-testid='beds'>
             <TbBed />
             {rooms}
           </Flex>
@@ -26,7 +26,7 @@ const PropertyStats = ({ rooms, baths, price, sqSize }) => {
         </Center>
         <Flex flexDirection='column' justifyContent='center' alignItems='center' gap='0.3rem'>
           <Text>BATHS</Text>
-          <Flex alignItems='center' gap='0.5rem'>
+          <Flex alignItems='center' gap='0.5rem' data-testid='baths'>
             <TbBath />
             {baths}
           </Flex>
@@ -36,7 +36,7 @@ const PropertyStats = ({ rooms, baths, price, sqSize }) => {
         </Center>
         <Flex flexDirection='column' justifyContent='center' alignItems='center' gap='0.3rem'>
           <Text>SIZE</Text>
-          <Flex alignItems='center' gap='0.5rem'>
+          <Flex alignItems='center' gap='0.5rem' data-testid='size'>
             <TbRuler />
             {sqSize}
           </Flex>
@@ -46,7 +46,7 @@ const PropertyStats = ({ rooms, baths, price, sqSize }) => {
         </Center>
         <Flex flexDirection='column' justifyContent='center' alignItems='center' gap='0.3rem'>
           <Text>PRICE</Text>
-          <Flex alignItems='center' gap='0.5rem'>
+          <Flex alignItems='center' gap='0.5rem' data-testid='price'>
             {price}
           </Flex>
         </Flex>

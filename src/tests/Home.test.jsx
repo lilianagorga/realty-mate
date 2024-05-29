@@ -92,6 +92,7 @@ beforeEach(() => {
       event: {
         addListener: vi.fn(),
         removeListener: vi.fn(),
+        clearListeners: vi.fn(),
       }
     }
   };
