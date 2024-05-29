@@ -48,12 +48,12 @@ export const getProperties = async (num) => {
     lang: 'en',
     sort: 'city-level-score',
   });
-  return data?.hits || [];
+  return data?.data?.hits || [];
 };
 
 export const getProperty = async (id) => {
   const data = await fetchApi('/properties/detail', { externalID: id });
-  return data || {};
+  return data?.data || {};
 };
 
 export const autoComplete = async (query) => {

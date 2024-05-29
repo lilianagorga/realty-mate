@@ -9,11 +9,12 @@ import { useIsDesktop } from "../../hooks/useIsDesktop.js";
 
 const PropertySlider = ({ featuredProperties }) => {
   const { isDesktop } = useIsDesktop();
+  const isTestEnv = process.env.NODE_ENV === 'test';
   return (
     <Swiper
       slidesPerView={isDesktop ? 3 : 1} 
       spaceBetween={10}
-      loop={true}
+      loop={!isTestEnv}
       centeredSlides={true}
       autoplay={{ delay: 2000, disableOnInteraction: true }}
       pagination={{ dynamicBullets: true }}

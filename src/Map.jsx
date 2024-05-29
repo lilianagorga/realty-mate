@@ -13,8 +13,7 @@ function Map({ center, zoom, onPositionChange, isLoaded }) {
   useEffect(() => {
     if (isLoaded && window.google && window.google.maps) {
       const { AdvancedMarkerElement } = window.google.maps.marker;
-
-      const map = panoramaRef.current && panoramaRef.current.getMap();
+      const map = panoramaRef.current && typeof panoramaRef.current.getMap === 'function' && panoramaRef.current.getMap();
       
       if (map) {
         new AdvancedMarkerElement({
@@ -47,6 +46,15 @@ function Map({ center, zoom, onPositionChange, isLoaded }) {
     if (panoramaRef.current && (center.lat !== panoramaPosition.lat || center.lng !== panoramaPosition.lng)) {
       panoramaRef.current.setPosition(center);
     }
+    if (panoramaRef.current) {
+      panoramaRef.current.addListener('position_changed', handlePositionChange);
+    }
+
+    return () => {
+      if (panoramaRef.current) {
+        window.google.maps.event.clearListeners(panoramaRef.current, 'position_changed');
+      }
+    };
   }, [center, panoramaPosition]);
 
   return (
@@ -55,7 +63,14 @@ function Map({ center, zoom, onPositionChange, isLoaded }) {
       center={center}
       zoom={zoom}
     >
-    <StreetViewPanorama options={panoramaOptions} onPositionChanged={handlePositionChange} />
+    <div data-testid="google-map" />
+    <StreetViewPanorama 
+      options={panoramaOptions} 
+      onLoad={(panorama) => {
+          panoramaRef.current = panorama;
+          panorama.addListener('position_changed', handlePositionChange);
+        }}
+    />
     </GoogleMap>
   );
 }
