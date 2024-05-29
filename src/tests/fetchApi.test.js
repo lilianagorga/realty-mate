@@ -29,7 +29,7 @@ describe('fetchApi', () => {
       axios.get.mockResolvedValueOnce({ data: mockResponse });
 
       const data = await fetchApi('/properties/list');
-      expect(data).toEqual(mockResponse);
+      expect(data.data).toEqual(mockResponse);
       expect(axios.get).toHaveBeenCalledWith('https://bayut.p.rapidapi.com/properties/list', expect.any(Object));
     });
 
@@ -75,7 +75,7 @@ describe('fetchApi', () => {
       axios.get.mockResolvedValueOnce({ data: mockResponse });
 
       const data = await autoComplete('query');
-      expect(data).toEqual(mockResponse);
+      expect(data.data).toEqual(mockResponse);
       expect(axios.get).toHaveBeenCalledWith('https://bayut.p.rapidapi.com/auto-complete', expect.any(Object));
     });
   });

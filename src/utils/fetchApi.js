@@ -1,16 +1,23 @@
 import axios from "axios";
 import propertiesMock from '../data/properties.json';
 import propertyMock from '../data/property.json';
+import { convertToEuro } from './currency';
 export const baseUrl= 'https://bayut.p.rapidapi.com';
 
 export const fetchApi = async (url, params = {}) => {
   if (import.meta.env.VITE_USE_MOCK_DATA === 'true') {
     if (url.includes('/properties/list')) {
-      return { data: propertiesMock };
+      const data = propertiesMock;
+      data.hits = data.hits.map(property => {
+        property.price = convertToEuro(property.price);
+        return property;
+      });
+      return { data };
     }
     if (url.includes('/properties/detail')) {
       const { externalID } = params;
       const property = propertyMock.find(p => p.externalID === externalID);
+      property.price = convertToEuro(property.price);
       return { data: property };
     }
   } else {
@@ -22,8 +29,7 @@ export const fetchApi = async (url, params = {}) => {
         },
         params,
       });
-      console.log('API Response:', data); 
-      return data;
+      return { data };
     } catch (error) {
       if (error.response) {
         console.error('API Error:', error.response.status, error.response.data);

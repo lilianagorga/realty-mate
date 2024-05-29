@@ -1,14 +1,11 @@
+import { convertToEuro } from "../utils/currency";
 export const usePropertyFormat = (property) => {
   if (!property) return {};
 
   const address = property.location ? property.location.map((item) => item.name).join(", ") : 'Unknown Address';
   const coverPhoto = property.coverPhoto ? property.coverPhoto.url : '/images/noresult.svg'; 
   const propertyType = `${property.category?.[0]?.name || ''}, ${property.category?.[1]?.name || ''}`;
-  const price = property.price?.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }) || 'N/A';
+  const price = property.price ? convertToEuro(property.price) : 'N/A';
   const title = property.title || 'No Title';
   const rooms = property.rooms || 'N/A';
   const baths = property.baths || 'N/A';

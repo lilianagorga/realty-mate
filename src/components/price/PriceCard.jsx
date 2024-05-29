@@ -2,6 +2,7 @@ import React from "react";
 import { price } from "../../constants/data.jsx";
 import { Box, Button, Heading, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import { CustomFlexContainer } from "../common/CustomFlexContainer.jsx";
+import { convertToEuro } from '../../utils/currency.js';
 
 const PriceCard = () => {
   return (
@@ -32,8 +33,8 @@ const PriceCard = () => {
             </Box>
             <Heading as="h3" fontSize="22px">{item.plan}</Heading>
             <Heading as="h1" fontSize="60px">
-              <Text as="span" fontSize="30px" fontWeight="500">$</Text>
-              {item.price}
+              <Text as="span" fontSize="30px" fontWeight="500">€</Text>
+              {convertToEuro(item.price)}
             </Heading>
             <Text>{item.ptext}</Text>
             <UnorderedList mt="40px" styleType="none">

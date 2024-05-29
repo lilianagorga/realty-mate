@@ -1,6 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { usePropertyFormat } from '../hooks/usePropertyFormat';
 import propertyMock from '../data/property.json';
+import { convertToEuro } from '../utils/currency';
 
 describe('usePropertyFormat', () => {
   test('formats property correctly with complete data', () => {
@@ -11,7 +12,10 @@ describe('usePropertyFormat', () => {
     expect(result.current.address).toBe('UAE, Dubai, Business Bay, Mayfair Tower');
     expect(result.current.coverPhoto).toBe('https://bayut-production.s3.eu-central-1.amazonaws.com/image/319179042/3e120c40662d4f02b49c220db8d60f6d');
     expect(result.current.propertyType).toBe('Residential, Apartments');
-    expect(result.current.price).toBe('$800,000');
+
+    const convertedPrice = convertToEuro(property.price).replace('€', '');
+    expect(result.current.price).toBe(`€${convertedPrice}`);
+
     expect(result.current.title).toBe('1-Bedroom | Vacant | Canal View');
     expect(result.current.rooms).toBe(1);
     expect(result.current.baths).toBe(1);

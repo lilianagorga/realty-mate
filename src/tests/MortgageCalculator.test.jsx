@@ -26,7 +26,7 @@ describe('MortgageCalculator Component', () => {
   
     await waitFor(() => {
       const paymentText = screen.getByText((content, element) => {
-        return element.tagName.toLowerCase() === 'strong' && content.startsWith('$1073.64');
+        return element.tagName.toLowerCase() === 'strong' && content.startsWith('€1073.64');
       });
       expect(paymentText).toBeInTheDocument();
     });
