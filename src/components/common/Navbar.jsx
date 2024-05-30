@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer, Button, useTheme } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer, Button, useTheme, useMediaQuery } from '@chakra-ui/react';
 import { AiOutlineMail, AiOutlineSearch } from 'react-icons/ai';
 import { MdHome, MdAttachMoney } from 'react-icons/md';
 import { FcMenu, FcHome, FcAbout } from 'react-icons/fc';
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const navigate = useNavigate();
   const theme = useTheme();
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
 
   return (
     <Flex 
@@ -33,6 +34,7 @@ const Navbar = () => {
         fontWeight="bold"
         onClick={() => navigate('/')}
         mr="2"
+        display={isLargerThan768 ? 'flex' : 'none'}
       >
         Home
       </Button>
@@ -44,6 +46,7 @@ const Navbar = () => {
         fontWeight="bold"
         onClick={() => navigate('/properties')}
         mr="2"
+        display={isLargerThan768 ? 'flex' : 'none'}
       >
         Properties
       </Button>
@@ -55,6 +58,7 @@ const Navbar = () => {
         fontWeight="bold"
         onClick={() => navigate('/contact')}
         mr="2"
+        display={isLargerThan768 ? 'flex' : 'none'}
       >
         Contact
       </Button>
@@ -66,6 +70,7 @@ const Navbar = () => {
           fontWeight="bold"
           onClick={() => navigate('/about')}
           mr="2"
+          display={isLargerThan768 ? 'flex' : 'none'}
         >
           About
         </Button>
@@ -76,6 +81,7 @@ const Navbar = () => {
           fontSize="xl"
           fontWeight="bold"
           onClick={() => navigate('/pricing')}
+          display={isLargerThan768 ? 'flex' : 'none'}
         >
           Pricing
         </Button>

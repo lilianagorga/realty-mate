@@ -18,7 +18,7 @@ const Team = () => {
             and commercial properties, ensuring every transaction is smooth and beneficial.' 
           />
 
-          <Grid mt={12.5} templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap={6}>
+          <Grid mt={12.5} templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }} gap={6}>
             {team.map((val, index) => (
               <Box 
                 bg="white"

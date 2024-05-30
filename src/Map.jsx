@@ -3,7 +3,7 @@ import { GoogleMap, StreetViewPanorama } from '@react-google-maps/api';
 
 function Map({ center, zoom, onPositionChange, isLoaded }) {
   const containerStyle = {
-    width: '70%',
+    width: '100%',
     height: '50vh'
   };
 

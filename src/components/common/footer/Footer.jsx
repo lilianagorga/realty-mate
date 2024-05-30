@@ -19,7 +19,6 @@ const Footer = () => {
           <CustomFlexContainer>
             <Box>
               <Heading as="h1" color="white" fontSize="40px">Do You Have Questions ?</Heading>
-              <Text color="white" fontWeight="bold" m="20px 0">We'll help you to grow your career and growth.</Text>
             </Box>
             <Button variant="contactUs">Contact Us Today</Button>
           </CustomFlexContainer>
@@ -27,8 +26,8 @@ const Footer = () => {
       </Box>
 
 
-      <Box maxWidth='1280px' margin='0 auto' paddingY='3rem' paddingX={{ base: '2rem', sm: '0' }}>
-        <SimpleGrid columns={{ base: 1, md: 4 }} color='whiteAlpha.700' gap='1.7rem' minChildWidth='150px'>
+      <Box maxWidth='1280px' margin='0 auto' paddingY='3rem' paddingX={{ base: '2rem', sm: '3rem' }}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} color='whiteAlpha.700' gap='1.7rem' minChildWidth='150px'>
           <Flex flexDirection='column'>
             <FooterHeader title='Services' />
             {services.map(item => (

@@ -32,39 +32,37 @@ function MortgageCalculator() {
   };
 
   return (
-    <Container centerContent maxWidth="lg">
-      <Box p={5} shadow="md" borderWidth="1px" borderRadius="lg" bg="white" width="full">
-        <VStack spacing={4} align="stretch">
-          <Text fontSize="2xl" textAlign="center">Calculate Your Ideal Spending</Text>
-          <form onSubmit={handleSubmit}>
-            <FormControl isRequired>
-              <FormLabel htmlFor="principal">Principal</FormLabel>
-              <NumberInput onChange={(valueString) => setPrincipal(valueString)}>
-                <NumberInputField id="principal" value={principal} />
-              </NumberInput>
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel htmlFor="interestRate">Interest Rate (%)</FormLabel>
-              <NumberInput onChange={(valueString) => setInterestRate(valueString)}>
-                <NumberInputField id="interestRate" value={interestRate} />
-              </NumberInput>
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel htmlFor="years">Years</FormLabel>
-              <NumberInput onChange={(valueString) => setYears(valueString)}>
-                <NumberInputField id="years" value={years} />
-              </NumberInput>
-            </FormControl>
-            <Button mt={4} colorScheme="teal" type="submit">Calculate</Button>
-          </form>
-          {monthlyPayment && (
-            <Text mt={2}>
-              Monthly Payment: <strong>€{monthlyPayment}</strong>
-            </Text>
-          )}
-        </VStack>
-      </Box>
-    </Container>
+    <Box p={5} shadow="md" borderWidth="1px" borderRadius="lg" bg="white" width="full">
+      <VStack spacing={4} align="stretch">
+        <Text fontSize="2xl" textAlign="center">Calculate Your Ideal Spending</Text>
+        <form onSubmit={handleSubmit}>
+          <FormControl isRequired>
+            <FormLabel htmlFor="principal">Principal</FormLabel>
+            <NumberInput onChange={(valueString) => setPrincipal(valueString)}>
+              <NumberInputField id="principal" value={principal} />
+            </NumberInput>
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel htmlFor="interestRate">Interest Rate (%)</FormLabel>
+            <NumberInput onChange={(valueString) => setInterestRate(valueString)}>
+              <NumberInputField id="interestRate" value={interestRate} />
+            </NumberInput>
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel htmlFor="years">Years</FormLabel>
+            <NumberInput onChange={(valueString) => setYears(valueString)}>
+              <NumberInputField id="years" value={years} />
+            </NumberInput>
+          </FormControl>
+          <Button mt={4} colorScheme="teal" type="submit">Calculate</Button>
+        </form>
+        {monthlyPayment && (
+          <Text mt={2}>
+            Monthly Payment: <strong>€{monthlyPayment}</strong>
+          </Text>
+        )}
+      </VStack>
+    </Box>
   );
 }
 

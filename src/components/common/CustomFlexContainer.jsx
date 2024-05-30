@@ -12,6 +12,7 @@ export const CustomFlexContainer = ({
   cursor = "auto",
   fontWeight = "normal",
   marginTop = "0",
+  direction = "row",
 }) => {
   return (
     <Box
@@ -25,6 +26,7 @@ export const CustomFlexContainer = ({
       cursor={cursor}
       fontWeight={fontWeight}
       marginTop={marginTop}
+      flexDirection={direction}
     >
       {children}
     </Box>
