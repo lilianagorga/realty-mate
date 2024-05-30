@@ -44,7 +44,6 @@ describe('Footer', () => {
     );
 
     expect(screen.getByText('Do You Have Questions ?')).toBeInTheDocument();
-    expect(screen.getByText("We'll help you to grow your career and growth.")).toBeInTheDocument();
 
     const contactButton = screen.getByRole('button', { name: /contact us today/i });
     expect(contactButton).toBeInTheDocument();

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, VStack, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Box, VStack, Flex, Grid, GridItem, Container } from '@chakra-ui/react';
 import Map from '../../Map.jsx';
 import PlacesAutocomplete from '../../PlacesAutocomplete.jsx';
 import { useJsApiLoader } from '@react-google-maps/api';
@@ -86,19 +86,21 @@ function Home() {
 
   return (
     <Box mt={24} m="auto">
-      <VStack textAlign="center" alignItems="center" spacing={4} ml={72} mb={4} mt={20}>
-        <PlacesAutocomplete onPlaceSelected={handlePlaceSelect} />
-      </VStack>
-      <Grid templateColumns="repeat(3, 1fr)" gap={20}>
-        <GridItem colSpan={[3, 3, 1]}>
-          <MortgageCalculator />
-        </GridItem>
-        <GridItem colSpan={[3, 3, 2]}>
-          <Box width="full" height="400px" overflow="hidden">
-            <Map isLoaded={isLoaded} center={mapCenter} zoom={zoom} onPositionChange={onStreetViewPositionChanged} />
-          </Box>
-        </GridItem>
-      </Grid>
+      <Container maxWidth="1200px" px={4}>
+        <Box mb={4} mt={20} width="full">
+          <PlacesAutocomplete onPlaceSelected={handlePlaceSelect} />
+        </Box>
+        <Grid templateColumns={["1fr", "1fr", "2fr 2fr"]} gap={4} width="full">
+          <GridItem colSpan={[1, 1, 2]}>
+            <Box height="400px" overflow="hidden" borderRadius="lg" borderWidth="1px">
+              <Map isLoaded={isLoaded} center={mapCenter} zoom={zoom} onPositionChange={onStreetViewPositionChanged} />
+            </Box>
+          </GridItem>
+          <GridItem colSpan={[1, 1, 2]}>
+            <MortgageCalculator />
+          </GridItem>
+        </Grid>
+      </Container> 
       <Flex direction="column" mt={10}>
       {import.meta.env.VITE_USE_MOCK_DATA === 'true' ? (
           propertiesDataMock.hits.length ? (

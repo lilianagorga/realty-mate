@@ -11,7 +11,7 @@ const HeroForm = () => {
       <Text fontSize='lg'>Complete the form below to download your guide</Text>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl>
-          <Flex gap={{ base: '0', sm: '1rem' }} flexDirection={{ base: "column", sm: "row" }}>
+          <Flex gap={{ base: '0', sm: '1rem' }} flexDirection='column'>
             <Input marginTop='1.3rem' id="name" type='text' placeholder='Name' {...register('name', { required: true })} />
             {errors.name && <Text fontSize='xs' color='red.400'>{errors.name.type}</Text>}
             <Input marginTop='1.3rem' id="email" type='email' placeholder='Email' {...register('email', { required: true })} />

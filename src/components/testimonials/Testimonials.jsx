@@ -5,7 +5,7 @@ import TestimonialCard from './TestimonialCard.jsx';
 
 const Testimonials = () => {
   return (
-    <Box backgroundColor='blue.50'>
+    <Box backgroundColor='blue.50' px={{ base: '0', sm: '1rem' }}>
       <Box maxWidth='1280px' margin='0 auto' paddingY={{ base: '3rem', sm: '6rem' }}>
         <Text fontSize={{ base: '4xl', sm: '5xl' }} lineHeight='shorter' fontWeight='light' textAlign='center' paddingX='2rem'>
           Testimonials

@@ -19,7 +19,7 @@ function PlacesAutocomplete({ onPlaceSelected }) {
   }, [onPlaceSelected]);
 
   return (
-    <Box width="880px">
+    <Box width="100%">
       <Input id="autocomplete" placeholder="Explore your next home..." type="text" />
     </Box>
   );

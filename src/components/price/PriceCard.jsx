@@ -9,6 +9,9 @@ const PriceCard = () => {
     <>
       <CustomFlexContainer
         marginTop="50px"
+        direction={{ base: "column", md: "row" }}
+        justifyContent="space-between"
+        alignItems="center"
       >
         {price.map((item, index) => (
           <Box 
@@ -33,7 +36,7 @@ const PriceCard = () => {
             </Box>
             <Heading as="h3" fontSize="22px">{item.plan}</Heading>
             <Heading as="h1" fontSize="60px">
-              <Text as="span" fontSize="30px" fontWeight="500">€</Text>
+              <Text as="span" fontSize="30px" fontWeight="500"></Text>
               {convertToEuro(item.price)}
             </Heading>
             <Text>{item.ptext}</Text>

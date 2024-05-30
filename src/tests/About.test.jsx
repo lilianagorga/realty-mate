@@ -73,7 +73,7 @@ describe('About Component', () => {
     expect(screen.getByText(/More About Us/i)).toBeInTheDocument();
   });
 
-  test('renders the image with correct src', () => {
+  test('renders the image with correct background style', () => {
     render(
       <ChakraProvider theme={theme}>
         <BrowserRouter>
@@ -81,9 +81,9 @@ describe('About Component', () => {
         </BrowserRouter>
       </ChakraProvider>
     );
-
-    const image = screen.getByTestId('about-image');
-    expect(image).toHaveAttribute('src', './immio.jpg');
+  
+    const imageBox = screen.getByTestId('about-image');
+    expect(imageBox).toHaveStyle(`background: url('./immio.jpg') no-repeat center/cover`);
   });
 
   test('renders the Partners component', () => {
