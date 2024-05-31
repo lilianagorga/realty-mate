@@ -1,6 +1,6 @@
 # RealtyMate - Real Estate Agency Application
 
-## RealtyMate is a frontend application for a real estate agency using React, Chakra UI, Swiper, and Axios. This application allows users to explore real estate properties through an interactive map provided by Google Maps and property data fetched from the Bayut API. The project is structured to be integrated with a backend built in Laravel.
+### *RealtyMate is a frontend application for a real estate agency using React, Chakra UI, Swiper, and Axios. This application allows users to explore real estate properties through an interactive map provided by Google Maps and property data fetched from the Bayut API. The project is structured to be integrated with a backend built in Laravel.*
 
 ## Features
 
