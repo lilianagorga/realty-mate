@@ -46,30 +46,36 @@
 ## Installation and Setup
 
 1. **Clone the repository:**
-```bash
+  ```bash
   git clone https://github.com/your-username/realtymate.git
   cd realtymate
+  ```
 
 2. **Install dependencies:**
-```bash
+  ```bash
   npm install
+  ```
 
 3. **Set up environment variables:**
   Create a `.env` file at the root of the project and add the following variables:
-```bash
+  ```bash
   VITE_RAPIDAPI_KEY=your-rapidapi-key
   VITE_GOOGLE_MAP_API_KEY=your-google-map-api-key
   VITE_USE_MOCK_DATA=true
+  ```
 
 4. **Start the application:**
-```bash
+  ```bash
   npm run dev
+  ```
 
 5. **Testing Tools:**
   The application uses Vitest for testing. You can run the tests with the command:
-```bash
+  ```bash
   npm run test
+  ```
 
   For an interactive test UI:
-```bash
+  ```bash
   npm run test:ui
+  ```
