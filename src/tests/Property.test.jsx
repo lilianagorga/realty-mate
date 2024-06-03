@@ -33,8 +33,8 @@ describe('Property Component', () => {
     expect(await screen.findByText(/6679108/i)).toBeInTheDocument();
     expect(await screen.findByText(/for-sale/i)).toBeInTheDocument();
 
-    const convertedPrice = convertToEuro(800000).replace('€', '');
-    const priceRegex = new RegExp(`€${convertedPrice}`);
+    const convertedPrice = convertToEuro(800000);
+    const priceRegex = new RegExp(`${convertedPrice}`);
     expect(await screen.findByText(priceRegex)).toBeInTheDocument();
 
     expect(await screen.findByText(/1 Bedroom/i)).toBeInTheDocument();
