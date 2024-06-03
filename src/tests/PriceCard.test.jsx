@@ -21,8 +21,8 @@ describe('PriceCard Component', () => {
       const priceTextElements = screen.getAllByText(item.ptext);
       expect(priceTextElements.length).toBeGreaterThan(0);
       expect(priceTextElements.length).toBeLessThanOrEqual(price.length);
-      const convertedPrice = convertToEuro(item.price).replace(/€/g, '');
-      const priceRegex = new RegExp(`^€${convertedPrice}$`);
+      const convertedPrice = convertToEuro(item.price);
+      const priceRegex = new RegExp(`^${convertedPrice}$`);
       
       const priceElement = screen.getByText(priceRegex);
       expect(priceElement).toBeInTheDocument();
