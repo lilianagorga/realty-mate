@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Grid, Button, Image, Heading as ChakraHeading, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faMapMarkerAlt, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import Heading from "../common/Heading.jsx";
-import { team } from "../../constants/data.jsx";
 import { CustomContainer } from "../common/Customcontainer.jsx";
 import { CustomFlexContainer } from "../common/CustomFlexContainer.jsx";
+import { getTeams } from "../../utils/fetchData.js";
 
 const Team = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      console.log('Fetching teams');
+      const teamsData = await getTeams();
+      console.log('Teams data:', teamsData);
+
+      const transformedTeamsData = teamsData.map(team => ({
+        ...team,
+        icon: team.icon ? JSON.parse(team.icon).map((iconStr, index) => (
+          <span key={index} dangerouslySetInnerHTML={{ __html: iconStr }} />
+        )) : []
+      }));
+      setTeamMembers(transformedTeamsData);
+    };
+    fetchTeams();
+  }, []);
+
   return (
     <Box p={5} py="20" bg="team.100" position="relative">
       <Box as="section">
@@ -19,8 +38,10 @@ const Team = () => {
           />
 
           <Grid mt={12.5} templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }} gap={6}>
-            {team.map((val, index) => (
+            {teamMembers.map((val, index) => (
               <Box 
+                as="article"
+                data-testid={`team-member-${index}`}
                 bg="white"
                 borderRadius={1.5}
                 border="1px solid"
@@ -103,7 +124,7 @@ const Team = () => {
                         bg="team.500" 
                         borderRadius="full" 
                         m="5px"
-                        data-testid={`icon-${icon.props.className.split(' ')[1]}`}
+                        data-testid={`icon-${index}`}
                       >
                         <Box as="span">{icon}</Box>
                       </ListItem>
