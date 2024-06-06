@@ -11,7 +11,7 @@ const HeroBanner = () => {
         minHeight={{ base: 'auto', sm: '60vh' }}
         backgroundPosition="center"
         backgroundSize="cover"
-        backgroundImage="url('/hero/heroBg.jpg')"
+        backgroundImage="url('/images/hero/heroBg.jpg')"
       >
         <Box position='absolute' width='100%' height='100%' backgroundColor='blue.900' opacity='0.85' />
         <Box 
