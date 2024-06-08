@@ -1,17 +1,20 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { Box, FormControl, FormLabel, Input, Button, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login(email, password);
+      navigate('/');
     } catch (error) {
       console.error('Login failed:', error);
       setError('Login failed');
