@@ -3,7 +3,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { Box, FormControl, FormLabel, Input, Button, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
-const LoginTemp = () => {
+const Login = () => {
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -54,4 +54,4 @@ const LoginTemp = () => {
   );
 };
 
-export default LoginTemp;
+export default Login;
