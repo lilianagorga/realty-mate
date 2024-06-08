@@ -2,6 +2,7 @@ import React from 'react';
 import './assets/css/app.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import { SearchProvider } from './context/SearchContext.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import theme from './assets/js/theme';
 import Home from './components/pages/Home.jsx';
@@ -12,7 +13,10 @@ import Property from './components/property/Property.jsx';
 import Contact from './components/pages/contact/Contact.jsx';
 import Footer from './components/common/footer/Footer.jsx';
 import Pricing from './components/pages/Pricing.jsx';
-
+import Login from './components/Auth/Login.jsx';
+import AddMyProperty from './components/propertyInternal/AddMyProperty.jsx';
+import MyProperties from './components/propertyInternal/MyProperties.jsx';
+import RequireAuth from './components/Auth/RequireAuth.jsx';
 
 
 function App() {
@@ -20,18 +24,23 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
-        <SearchProvider>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/properties" element={<Properties />} />
-            <Route path="/property/:id" element={<Property />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/pricing" element={<Pricing />} />
-          </Routes>
-          <Footer />
-        </SearchProvider>
+          <SearchProvider>
+            <AuthProvider>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/properties" element={<Properties />} />
+                <Route path="/property/:id" element={<Property />} />
+                <Route path='/contact' element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/addProperty" element={<RequireAuth><AddMyProperty /></RequireAuth>} />
+                <Route path="/myProperties" element={<RequireAuth><MyProperties /></RequireAuth>} />
+              </Routes>
+              <Footer />
+            </AuthProvider>
+          </SearchProvider>
       </Router>
     </ChakraProvider>
   );

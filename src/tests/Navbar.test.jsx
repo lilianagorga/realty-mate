@@ -7,6 +7,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import theme from '../assets/js/theme';
 import Navbar from '../components/common/Navbar';
 import { describe, test, expect, beforeAll, vi, afterEach } from 'vitest';
+import { AuthContext } from '../context/AuthContext';
 
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -64,7 +65,9 @@ describe('Navbar', () => {
 
     renderWithRouter(
       <ChakraProvider theme={theme}>
-        <Navbar />
+        <AuthContext.Provider value={{ token: null, logout: vi.fn() }}>
+          <Navbar />
+        </AuthContext.Provider>
       </ChakraProvider>
     );
 
@@ -91,7 +94,9 @@ describe('Navbar', () => {
   
     renderWithRouter(
       <ChakraProvider theme={theme}>
-        <Navbar />
+        <AuthContext.Provider value={{ token: null, logout: vi.fn() }}>
+          <Navbar />
+        </AuthContext.Provider>
       </ChakraProvider>
     );
   
@@ -120,7 +125,9 @@ describe('Navbar', () => {
     });
     renderWithRouter(
       <ChakraProvider theme={theme}>
-        <Navbar />
+        <AuthContext.Provider value={{ token: null, logout: vi.fn() }}>
+          <Navbar />
+        </AuthContext.Provider>
         <LocationDisplay />
       </ChakraProvider>
     );
@@ -157,7 +164,9 @@ describe('Navbar', () => {
 
     renderWithRouter(
       <ChakraProvider theme={theme}>
-        <Navbar />
+        <AuthContext.Provider value={{ token: null, logout: vi.fn() }}>
+          <Navbar />
+        </AuthContext.Provider>
         <LocationDisplay />
       </ChakraProvider>
     );
@@ -206,5 +215,43 @@ describe('Navbar', () => {
 
     await userEvent.click(screen.getByRole('menuitem', { name: /pricing/i }));
     expect(screen.getByTestId('location-display')).toHaveTextContent('/pricing');
+  });
+
+  test('renders and navigates auth-dependent buttons correctly', async () => {
+    window.matchMedia = vi.fn().mockImplementation((query) => {
+      return {
+        matches: query === '(min-width: 768px)',
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      };
+    });
+
+    const mockLogout = vi.fn();
+
+    renderWithRouter(
+      <ChakraProvider theme={theme}>
+        <AuthContext.Provider value={{ token: 'mockToken', logout: mockLogout }}>
+          <Navbar />
+          <LocationDisplay />
+        </AuthContext.Provider>
+      </ChakraProvider>
+    );
+    expect(screen.getByRole('button', { name: /my properties/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /add property/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /logout/i })).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('button', { name: /my properties/i }));
+    expect(screen.getByTestId('location-display')).toHaveTextContent('/myProperties');
+
+    await userEvent.click(screen.getByRole('button', { name: /add property/i }));
+    expect(screen.getByTestId('location-display')).toHaveTextContent('/addProperty');
+
+    await userEvent.click(screen.getByRole('button', { name: /logout/i }));
+    expect(mockLogout).toHaveBeenCalled();
   });
 });
