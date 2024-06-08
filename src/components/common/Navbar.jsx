@@ -127,18 +127,32 @@ const Navbar = () => {
             </Button>
           </>
         ) : (
+          <>
+            <Button
+              leftIcon={<FiKey />}
+              colorScheme="teal"
+              variant="outline"
+              fontSize="xl"
+              fontWeight="bold"
+              onClick={() => navigate('/login')}
+              mr="2"
+              display={isLargerThan768 ? 'flex' : 'none'}
+            >
+              Login
+            </Button>
           <Button
             leftIcon={<FiKey />}
             colorScheme="teal"
             variant="outline"
             fontSize="xl"
             fontWeight="bold"
-            onClick={() => navigate('/login')}
+            onClick={() => navigate('/register')}
             mr="2"
             display={isLargerThan768 ? 'flex' : 'none'}
           >
-            Login
+            Register
           </Button>
+          </>
         )}
     <Spacer />
     <Box>
@@ -173,7 +187,10 @@ const Navbar = () => {
               <MenuItem icon={<FiKey />} onClick={logout}>Logout</MenuItem>
             </>
           ) : (
-            <MenuItem icon={<FiKey />} onClick={() => navigate('/login')}>Login</MenuItem>
+            <>
+              <MenuItem icon={<FiKey />} onClick={() => navigate('/login')}>Login</MenuItem>
+              <MenuItem icon={<FiKey />} onClick={() => navigate('/register')}>Register</MenuItem>
+            </>
           )}
         </MenuList>
       </Menu>

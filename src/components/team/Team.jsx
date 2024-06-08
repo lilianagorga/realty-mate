@@ -12,9 +12,7 @@ const Team = () => {
 
   useEffect(() => {
     const fetchTeams = async () => {
-      console.log('Fetching teams');
       const teamsData = await getTeams();
-      console.log('Teams data:', teamsData);
 
       const transformedTeamsData = teamsData.map(team => ({
         ...team,

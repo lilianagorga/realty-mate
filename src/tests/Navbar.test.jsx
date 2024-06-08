@@ -76,6 +76,8 @@ describe('Navbar', () => {
     expect(screen.getByRole('button', { name: /contact/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /about/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /pricing/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /login/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /register/i })).toBeInTheDocument();
   });
 
   test('renders only menu button on smaller screens', async () => {
@@ -107,6 +109,12 @@ describe('Navbar', () => {
       expect(screen.queryByRole('button', { name: /about/i })).not.toBeInTheDocument();
       expect(screen.queryByRole('button', { name: /pricing/i })).not.toBeInTheDocument();
       expect(screen.getByRole('button', { name: '' })).toBeInTheDocument();
+    });
+    await userEvent.click(screen.getByRole('button', { name: '' }));
+
+    await waitFor(() => {
+    expect(screen.getByRole('menuitem', { name: /login/i })).toBeInTheDocument();
+    expect(screen.getByRole('menuitem', { name: /register/i })).toBeInTheDocument();
     });
   });
 
@@ -146,6 +154,12 @@ describe('Navbar', () => {
 
     await userEvent.click(screen.getByRole('button', { name: /pricing/i }));
     expect(screen.getByTestId('location-display')).toHaveTextContent('/pricing');
+
+    await userEvent.click(screen.getByRole('button', { name: /login/i }));
+    expect(screen.getByTestId('location-display')).toHaveTextContent('/login');
+    
+    await userEvent.click(screen.getByRole('button', { name: /register/i }));
+    expect(screen.getByTestId('location-display')).toHaveTextContent('/register');
   });
 
   test('navigates to correct routes when menu items are clicked on smaller screens', async () => {
@@ -215,6 +229,24 @@ describe('Navbar', () => {
 
     await userEvent.click(screen.getByRole('menuitem', { name: /pricing/i }));
     expect(screen.getByTestId('location-display')).toHaveTextContent('/pricing');
+
+    await userEvent.click(screen.getByRole('button', { name: '' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('menuitem', { name: /login/i })).toBeInTheDocument();
+    });
+
+    await userEvent.click(screen.getByRole('menuitem', { name: /login/i }));
+    expect(screen.getByTestId('location-display')).toHaveTextContent('/login');
+
+    await userEvent.click(screen.getByRole('button', { name: '' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('menuitem', { name: /register/i })).toBeInTheDocument();
+    });
+
+    await userEvent.click(screen.getByRole('menuitem', { name: /register/i }));
+    expect(screen.getByTestId('location-display')).toHaveTextContent('/register');
   });
 
   test('renders and navigates auth-dependent buttons correctly', async () => {
