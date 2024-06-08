@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Box, FormControl, FormLabel, Input, Button, Text } from '@chakra-ui/react';
 import axios from 'axios';
 
-const Register = () => {
+const RegisterTemp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -80,4 +80,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterTemp;
