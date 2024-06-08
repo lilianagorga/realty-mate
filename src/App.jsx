@@ -13,12 +13,11 @@ import Property from './components/property/Property.jsx';
 import Contact from './components/pages/contact/Contact.jsx';
 import Footer from './components/common/footer/Footer.jsx';
 import Pricing from './components/pages/Pricing.jsx';
-import Register from './components/auth/Register.jsx';
 import Login from './components/auth/Login.jsx';
 import AddMyProperty from './components/propertyInternal/AddMyProperty.jsx';
 import MyProperties from './components/propertyInternal/MyProperties.jsx';
 import RequireAuth from './components/auth/RequireAuth.jsx';
-
+import Register from './components/auth/Register.jsx';
 
 function App() {
 
@@ -35,10 +34,10 @@ function App() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/pricing" element={<Pricing />} />
-                <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/addProperty" element={<RequireAuth><AddMyProperty /></RequireAuth>} />
                 <Route path="/myProperties" element={<RequireAuth><MyProperties /></RequireAuth>} />
+                <Route path="/register" element={<Register />} />
               </Routes>
               <Footer />
             </AuthProvider>
