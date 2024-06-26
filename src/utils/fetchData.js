@@ -9,3 +9,13 @@ export const getTeams = async () => {
     });
   return response.data || [];
 };
+
+export const getPrices = async () => {
+  const token = localStorage.getItem('token');
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/prices`, {
+      headers: {
+          Authorization: `Bearer ${token}`
+      }
+  });
+  return response.data || [];
+};

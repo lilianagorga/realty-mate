@@ -1,10 +1,15 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import Pricing from '../components/pages/Pricing';
 import theme from '../assets/js/theme';
+import { mockPriceData } from '../constants/mockPriceData';
+
+vi.mock('../utils/fetchData.js', () => ({
+  getPrices: vi.fn(() => Promise.resolve(mockPriceData)),
+}));
 
 describe('Pricing Component', () => {
   test('renders the Pricing component', () => {
@@ -35,7 +40,7 @@ describe('Pricing Component', () => {
     expect(bannerImage).toHaveAttribute('src', '/images/pricing.jpg');
   });
 
-  test('renders the PriceCard component', () => {
+  test('renders the PriceCard component', async () => {
     render(
       <ChakraProvider theme={theme}>
         <BrowserRouter>
@@ -44,7 +49,9 @@ describe('Pricing Component', () => {
       </ChakraProvider>
     );
 
-    const priceCards = screen.getAllByRole('heading', { level: 3 });
-    expect(priceCards.length).toBeGreaterThan(0);
+    await waitFor(() => {
+      const priceCards = screen.getAllByRole('heading', { level: 3 });
+      expect(priceCards.length).toBeGreaterThan(0);
+    });
   });
 });
