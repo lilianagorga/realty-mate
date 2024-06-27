@@ -1,17 +1,24 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { describe, test, expect, vi, beforeEach } from 'vitest';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import Pricing from '../components/pages/Pricing';
 import theme from '../assets/js/theme';
 import { mockPriceData } from '../constants/mockPriceData';
+import { getPrices } from '../utils/fetchData';
 
 vi.mock('../utils/fetchData.js', () => ({
-  getPrices: vi.fn(() => Promise.resolve(mockPriceData)),
+  getPrices: vi.fn(),
 }));
 
 describe('Pricing Component', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.mocked(getPrices).mockResolvedValue(mockPriceData);
+  });
+
   test('renders the Pricing component', () => {
     render(
       <ChakraProvider theme={theme}>

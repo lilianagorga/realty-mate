@@ -1,13 +1,25 @@
 import React from 'react';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { describe, test, expect } from 'vitest';
+import { describe, test, expect, vi, beforeEach } from 'vitest';
 import theme from '../assets/js/theme';
 import Team from '../components/team/Team';
 import { mockTeamData } from '../constants/mockData';
+import { getTeams } from '../utils/fetchData';
+
+// vi.mock('../utils/fetchData.js', () => ({
+//   getTeams: vi.fn(() => Promise.resolve(mockTeamData)),
+// }));
+
+vi.mock('../utils/fetchData.js', () => ({
+  getTeams: vi.fn(),
+}));
 
 describe('Team Component', () => {
-
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.mocked(getTeams).mockResolvedValue(mockTeamData);
+  });
   test('renders the Team component with correct title and subtitle', async () => {
     render(
       <ChakraProvider theme={theme}>
