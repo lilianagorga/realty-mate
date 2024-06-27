@@ -1,21 +1,32 @@
 import axios from "axios";
 
-export const getTeams = async () => {
+const getHeaders = () => {
   const token = localStorage.getItem('token');
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/teams`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    });
+  if (token) {
+    return {
+      Authorization: `Bearer ${token}`
+    };
+  }
+  return {};
+};
+
+export const getTestimonials = async () => {
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/testimonials`, {
+    headers: getHeaders()
+  });
+  return response.data || [];
+};
+
+export const getTeams = async () => {
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/teams`, {
+    headers: getHeaders()
+  });
   return response.data || [];
 };
 
 export const getPrices = async () => {
-  const token = localStorage.getItem('token');
   const response = await axios.get(`${import.meta.env.VITE_API_URL}/prices`, {
-      headers: {
-          Authorization: `Bearer ${token}`
-      }
+    headers: getHeaders()
   });
   return response.data || [];
 };

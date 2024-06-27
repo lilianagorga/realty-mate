@@ -1,9 +1,9 @@
-export const testimonials = [
+export const mockTestimonialsData = [
   {
     name: 'Yovonnda Bostick',
     company: 'Realmix',
     image: '/images/testimonials/testimonial1.jpg',
-    testimonial: 'Working with this agency was a pleasure.Their professionalism and attention to detail made the entire process of buying our new home smooth and stress-free.'
+    testimonial: 'Working with this agency was a pleasure. Their professionalism and attention to detail made the entire process of buying our new home smooth and stress-free.'
   },
   {
     name: 'Fina Scallon',
@@ -15,6 +15,6 @@ export const testimonials = [
     name: 'Ron Schonfeld',
     company: 'Tagopia',
     image: '/images/testimonials/testimonial3.jpg',
-    testimonial: 'The team at this agency went above and beyond to find us the perfect property. Their dedication and knowledge of the market were truly impressive'
+    testimonial: 'The team at this agency went above and beyond to find us the perfect property. Their dedication and knowledge of the market were truly impressive.'
   }
 ];

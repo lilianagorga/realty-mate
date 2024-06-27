@@ -4,11 +4,20 @@ import '@testing-library/jest-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import PriceCard from '../components/price/PriceCard';
 import theme from '../assets/js/theme';
-import { expect } from 'vitest';
+import { expect, vi, beforeEach } from 'vitest';
 import { mockPriceData } from '../constants/mockPriceData';
+import { getPrices } from '../utils/fetchData';
 import { convertToEuro } from '../utils/currency';
 
+vi.mock('../utils/fetchData.js', () => ({
+  getPrices: vi.fn(),
+}));
+
 describe('PriceCard Component', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.mocked(getPrices).mockResolvedValue(mockPriceData);
+  });
   test('renders the PriceCard component with correct plans', async () => {
     render(
       <ChakraProvider theme={theme}>

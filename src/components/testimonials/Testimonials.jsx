@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, SimpleGrid, Text } from '@chakra-ui/react';
-import { testimonials } from './testimonialConsts';
 import TestimonialCard from './TestimonialCard.jsx';
+import { getTestimonials } from '../../utils/fetchData.js';
 
 const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const data = await getTestimonials();
+        setTestimonials(data);
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          setError('Please log in to view testimonials.');
+        } else {
+          setError('Error fetching testimonials.');
+        }
+      }
+    };
+    fetchTestimonials();
+  }, []);
+
+  if (error) {
+    return <Text color="red.500">{error}</Text>;
+  }
+
   return (
     <Box backgroundColor='blue.50' px={{ base: '0', sm: '1rem' }}>
       <Box maxWidth='1280px' margin='0 auto' paddingY={{ base: '3rem', sm: '6rem' }}>
