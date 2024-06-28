@@ -32,7 +32,7 @@
   - **property**: Contains property-related components.
   - **team**: Contains team-related components.
   - **testimonials**: Contains testimonial-related components.
-- **src/constants**: Contains constants used in the application.
+- **src/mocks**: Contains mocks used in the application.
 - **src/context**: Contains React context for global state management.
 - **src/data**: Contains mock data used for testing.
   - **properties.json**: List of properties.

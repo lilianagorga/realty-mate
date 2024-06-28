@@ -1,16 +1,21 @@
-// src/tests/About.test.jsx
-
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import { expect, vi } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
 import About from '../components/pages/About';
 import theme from '../assets/js/theme';
-import { partners } from '../components/partners/partnersConst';
+import { mockPartnersData } from '../mocks/mockPartnersData';
+import { mockTestimonialsData } from '../mocks/mockTestimonialsData';
+
+vi.mock('../utils/fetchData.js', () => ({
+  getPartners: () => Promise.resolve(mockPartnersData),
+  getTestimonials: () => Promise.resolve(mockTestimonialsData),
+}));
 
 describe('About Component', () => {
+
   test('renders without crashing', () => {
     render(
       <ChakraProvider theme={theme}>
@@ -86,7 +91,7 @@ describe('About Component', () => {
     expect(imageBox).toHaveStyle(`background: url('./immio.jpg') no-repeat center/cover`);
   });
 
-  test('renders the Partners component', () => {
+  test('renders the Partners component', async () => {
     render(
       <ChakraProvider theme={theme}>
         <BrowserRouter>
@@ -95,15 +100,17 @@ describe('About Component', () => {
       </ChakraProvider>
     );
 
-    const partnerImages = screen.getAllByRole('img', { name: '' });
-    const partnerSrcs = partnerImages.map(image => {
-      const src = image.src;
-      const relativeSrc = src.replace(window.location.origin, '');
-      return relativeSrc;
-    });
+    await waitFor(() => {
+      const partnerImages = screen.getAllByRole('img');
+      const partnerSrcs = partnerImages.map(image => {
+        const src = image.src;
+        const relativeSrc = src.replace(window.location.origin, '');
+        return relativeSrc;
+      });
 
-    partners.forEach(partner => {
-      expect(partnerSrcs).toContain(partner);
+      mockPartnersData.forEach(partner => {
+        expect(partnerSrcs).toContain(partner.logo);
+      });
     });
   });
 

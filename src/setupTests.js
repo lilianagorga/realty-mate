@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { mockTeamData } from './constants/mockData';
+import { mockTeamData } from './mocks/mockData';
 
 const mock = new MockAdapter(axios);
 

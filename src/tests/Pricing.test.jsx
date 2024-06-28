@@ -6,7 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import Pricing from '../components/pages/Pricing';
 import theme from '../assets/js/theme';
-import { mockPriceData } from '../constants/mockPriceData';
+import { mockPriceData } from '../mocks/mockPriceData';
 import { getPrices } from '../utils/fetchData';
 
 vi.mock('../utils/fetchData.js', () => ({

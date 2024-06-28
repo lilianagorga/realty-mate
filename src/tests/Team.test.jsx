@@ -4,12 +4,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import theme from '../assets/js/theme';
 import Team from '../components/team/Team';
-import { mockTeamData } from '../constants/mockData';
+import { mockTeamData } from '../mocks/mockData';
 import { getTeams } from '../utils/fetchData';
-
-// vi.mock('../utils/fetchData.js', () => ({
-//   getTeams: vi.fn(() => Promise.resolve(mockTeamData)),
-// }));
 
 vi.mock('../utils/fetchData.js', () => ({
   getTeams: vi.fn(),

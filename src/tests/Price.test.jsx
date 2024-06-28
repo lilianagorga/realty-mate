@@ -4,7 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import theme from '../assets/js/theme';
 import Price from '../components/price/Price.jsx';
-import { mockPriceData } from '../constants/mockPriceData';
+import { mockPriceData } from '../mocks/mockPriceData';
 import { getPrices } from '../utils/fetchData';
 
 vi.mock('../utils/fetchData.js', () => ({
