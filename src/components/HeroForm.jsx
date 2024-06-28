@@ -1,10 +1,23 @@
 import React from "react";
 import { Box, Button, Checkbox, Flex, FormControl, Input, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const HeroForm = () => {
-  const { register, handleSubmit, formState:{ errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState:{ errors }, reset } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const token = localStorage.getItem('token');
+      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+      await axios.post(`${import.meta.env.VITE_API_URL}/send-guide`, data, { headers });
+      alert('PDF Guide sent successfully to your email');
+      reset();
+    } catch (error) {
+      console.error('Error sending PDF guide:', error);
+      alert('Failed to send PDF guide');
+    }
+  };
+
   return (
     <Box width='100%' padding='2rem' borderRadius='sm' backgroundColor='white' color='gray.700'>
       <Text fontSize='xl' fontWeight='bold'>Free PDF Guide</Text>
