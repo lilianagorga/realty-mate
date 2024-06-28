@@ -30,3 +30,10 @@ export const getPrices = async () => {
   });
   return response.data || [];
 };
+
+export const getPartners = async () => {
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/partners`, {
+    headers: getHeaders()
+  });
+  return response.data || [];
+};

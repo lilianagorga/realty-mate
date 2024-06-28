@@ -4,7 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import theme from '../assets/js/theme';
 import Testimonials from '../components/testimonials/Testimonials';
-import { mockTestimonialsData } from '../constants/mockTestimonialsData';
+import { mockTestimonialsData } from '../mocks/mockTestimonialsData';
 import { getTestimonials } from '../utils/fetchData';
 
 vi.mock('../utils/fetchData.js', () => ({

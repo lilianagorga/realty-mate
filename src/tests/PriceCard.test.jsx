@@ -5,7 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import PriceCard from '../components/price/PriceCard';
 import theme from '../assets/js/theme';
 import { expect, vi, beforeEach } from 'vitest';
-import { mockPriceData } from '../constants/mockPriceData';
+import { mockPriceData } from '../mocks/mockPriceData';
 import { getPrices } from '../utils/fetchData';
 import { convertToEuro } from '../utils/currency';
 
