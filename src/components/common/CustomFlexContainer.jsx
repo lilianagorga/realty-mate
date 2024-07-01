@@ -13,6 +13,7 @@ export const CustomFlexContainer = ({
   fontWeight = "normal",
   marginTop = "0",
   direction = "row",
+  flexWrap = "nowrap"
 }) => {
   return (
     <Box
@@ -27,6 +28,7 @@ export const CustomFlexContainer = ({
       fontWeight={fontWeight}
       marginTop={marginTop}
       flexDirection={direction}
+      flexWrap={flexWrap}
     >
       {children}
     </Box>

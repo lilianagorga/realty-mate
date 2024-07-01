@@ -37,6 +37,7 @@ const Price = () => {
             direction={{ base: "column", md: "row" }}
             justifyContent="space-between"
             alignItems="center"
+            flexWrap="wrap"
           >
           {prices.map((price, index) => (
               <PriceCard key={index} price={price} index={index} />
