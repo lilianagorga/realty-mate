@@ -12,6 +12,7 @@ import Navbar from './components/common/Navbar.jsx';
 import Property from './components/property/Property.jsx';
 import Contact from './components/pages/contact/Contact.jsx';
 import Footer from './components/common/footer/Footer.jsx';
+import WorkInProgress from './components/common/footer/WorkInProgress.jsx';
 import Pricing from './components/pages/Pricing.jsx';
 import Login from './components/auth/Login.jsx';
 import AddMyProperty from './components/propertyInternal/AddMyProperty.jsx';
@@ -38,6 +39,7 @@ function App() {
                 <Route path="/addProperty" element={<RequireAuth><AddMyProperty /></RequireAuth>} />
                 <Route path="/myProperties" element={<RequireAuth><MyProperties /></RequireAuth>} />
                 <Route path="/register" element={<Register />} />
+                <Route path="*" element={<WorkInProgress />} />
               </Routes>
               <Footer />
             </AuthProvider>
