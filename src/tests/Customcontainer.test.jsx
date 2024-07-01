@@ -2,8 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import { TempCustomContainer as CustomContainer } from "../components/common/TempCustomContainer";
-// import { CustomContainer } from '../components/common/CustomContainer';
+import { CustomContainer } from '../components/common/CustomContainer';
 import theme from '../assets/js/theme';
 
 describe('CustomContainer Component', () => {
