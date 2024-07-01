@@ -3,7 +3,8 @@ import { Box, Grid, Button, Image, Heading as ChakraHeading, Text, UnorderedList
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faMapMarkerAlt, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import Heading from "../common/Heading.jsx";
-import { CustomContainer } from "../common/CustomContainer.jsx";
+import { TempCustomContainer as CustomContainer } from "../common/TempCustomContainer.jsx";
+// import { CustomContainer } from "../common/CustomContainer.jsx";
 import { CustomFlexContainer } from "../common/CustomFlexContainer.jsx";
 import { getTeams } from "../../utils/fetchData.js";
 

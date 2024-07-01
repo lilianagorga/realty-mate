@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import Heading from "../common/Heading.jsx";
 import { Box } from "@chakra-ui/react";
 import PriceCard from "./PriceCard.jsx";
-import { CustomContainer } from "../common/CustomContainer.jsx";
+import { TempCustomContainer as CustomContainer } from '../common/TempCustomContainer.jsx';
+// import { CustomContainer } from "../common/CustomContainer.jsx";
 import { CustomFlexContainer } from "../common/CustomFlexContainer.jsx";
 import { getPrices } from "../../utils/fetchData.js";
 
