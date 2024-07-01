@@ -5,11 +5,12 @@ import { convertToEuro } from '../../utils/currency.js';
 const PriceCard = ({ price, index }) => {
   return (
     <Box 
-      w={{ base: "100%", md: "31.5%" }}
+      w={{ base: "100%", md: "calc(33.33% - 20px)" }}
       p="30px"
       borderRadius="10px"
       boxShadow="0 0 20px 0 rgba(112, 121, 138, 0.18)"
-      mb={{ base: "50px", md: "0" }}
+      mb={{ base: "50px", md: "20px" }}
+      mx={{ base: "0", md: "10px" }}
     >
       <Box display={index === 0 || index === 2 ? "none" : "block"}>
         {price.best && (
