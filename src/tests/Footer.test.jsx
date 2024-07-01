@@ -1,45 +1,55 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import userEvent from '@testing-library/user-event';
 import theme from '../assets/js/theme';
 import Footer from '../components/common/footer/Footer';
 import { describe, test, expect } from 'vitest';
-import { services, about, ourOffices, workWithUs } from '../components/common/footer/footerConsts';
+import { MemoryRouter } from 'react-router-dom';
+import '../setupTests';
 
 describe('Footer', () => {
-  test('renders all sections with correct links', () => {
+  test('renders all sections with correct links', async () => {
     render(
       <ChakraProvider theme={theme}>
-        <Footer />
+        <MemoryRouter initialEntries={['/']}>
+          <Footer />
+        </MemoryRouter>
       </ChakraProvider>
     );
 
-    services.forEach(item => {
-      expect(screen.getByText(item.name)).toBeInTheDocument();
-      expect(screen.getByText(item.name).closest('a')).toHaveAttribute('href', item.link);
+    await waitFor(() => {
+      expect(screen.getByText('Our Services')).toBeInTheDocument();
     });
 
-    about.forEach(item => {
-      expect(screen.getByText(item.name)).toBeInTheDocument();
-      expect(screen.getByText(item.name).closest('a')).toHaveAttribute('href', item.link);
+    ['Our Services', 'Meet The Team', 'Careers at Realty Mate', 'Latest News & Videos'].forEach(item => {
+      expect(screen.getByText(item)).toBeInTheDocument();
+      expect(screen.getByText(item).closest('a')).toHaveAttribute('href', '/work-in-progress');
     });
 
-    ourOffices.forEach(item => {
-      expect(screen.getByText(item.name)).toBeInTheDocument();
-      expect(screen.getByText(item.name).closest('a')).toHaveAttribute('href', item.link);
+    ['Buy', 'Rent', 'Commercial', 'Mortgage Services', 'Property Management'].forEach(item => {
+      expect(screen.getByText(item)).toBeInTheDocument();
+      expect(screen.getByText(item).closest('a')).toHaveAttribute('href', '/work-in-progress');
     });
 
-    workWithUs.forEach(item => {
-      expect(screen.getByText(item.name)).toBeInTheDocument();
-      expect(screen.getByText(item.name).closest('a')).toHaveAttribute('href', item.link);
+    ['Milan', 'London', 'Paris', 'Berlin', 'Barcelona'].forEach(item => {
+      expect(screen.getByText(item)).toBeInTheDocument();
+      expect(screen.getByText(item).closest('a')).toHaveAttribute('href', '/work-in-progress');
+    });
+
+    ['Off-Plan', 'Holiday Homes', 'Home Maintenance', 'Sell with us', 'Let with us'].forEach(item => {
+      expect(screen.getByText(item)).toBeInTheDocument();
+      expect(screen.getByText(item).closest('a')).toHaveAttribute('href', '/work-in-progress');
     });
   });
+
 
   test('renders contact section and button', () => {
     render(
       <ChakraProvider theme={theme}>
-        <Footer />
+        <MemoryRouter initialEntries={['/']}>
+          <Footer />
+        </MemoryRouter>
       </ChakraProvider>
     );
 
@@ -52,7 +62,9 @@ describe('Footer', () => {
   test('renders footer branding', () => {
     render(
       <ChakraProvider theme={theme}>
-        <Footer />
+        <MemoryRouter initialEntries={['/']}>
+          <Footer />
+        </MemoryRouter>
       </ChakraProvider>
     );
 

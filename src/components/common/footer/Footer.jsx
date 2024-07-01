@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Box, SimpleGrid, Text, Flex, Heading, Button } from '@chakra-ui/react';
-import { services, about, ourOffices, workWithUs } from './footerConsts';
+import { Link } from 'react-router-dom'; 
 import { HiHomeModern } from 'react-icons/hi2';
-import { CustomContainer } from '../Customcontainer.jsx';
+import { CustomContainer } from '../CustomContainer.jsx';
 import { CustomFlexContainer } from '../CustomFlexContainer.jsx';
 
 
 const Footer = () => {
+  const [footerLinks, setFooterLinks] = useState({
+    services: [],
+    about: [],
+    ourOffices: [],
+    workWithUs: []
+  });
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_URL}/footer-links`)
+      .then(response => {
+        setFooterLinks(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error fetching the footer links!', error);
+      });
+  }, []);
+
   return (
     <Box backgroundColor='blue.600'>
       <Box
@@ -20,7 +38,9 @@ const Footer = () => {
             <Box>
               <Heading as="h1" color="white" fontSize="40px">Do You Have Questions ?</Heading>
             </Box>
-            <Button variant="contactUs">Contact Us Today</Button>
+            <Link to="/contact">
+              <Button variant="contactUs">Contact Us Today</Button>
+            </Link>
           </CustomFlexContainer>
         </CustomContainer>
       </Box>
@@ -30,26 +50,26 @@ const Footer = () => {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} color='whiteAlpha.700' gap='1.7rem' minChildWidth='150px'>
           <Flex flexDirection='column'>
             <FooterHeader title='Services' />
-            {services.map(item => (
-              <FooterLink key={item.name} {...item} />
+            {footerLinks.services.map(item => (
+              <FooterLink key={item.name} name={item.name} link="/work-in-progress" />
             ))}
           </Flex>
           <Flex flexDirection='column'>
             <FooterHeader title='About' />
-            {about.map(item => (
-              <FooterLink key={item.name} {...item} />
+            {footerLinks.about.map(item => (
+              <FooterLink key={item.name} name={item.name} link="/work-in-progress" />
             ))}
           </Flex>
           <Flex flexDirection='column'>
             <FooterHeader title='Our Offices' />
-            {ourOffices.map(item => (
-              <FooterLink key={item.name} {...item} />
+            {footerLinks.ourOffices.map(item => (
+              <FooterLink key={item.name} name={item.name} link="/work-in-progress" />
             ))}
           </Flex>
           <Flex flexDirection='column'>
             <FooterHeader title='Work With Us' />
-            {workWithUs.map(item => (
-              <FooterLink key={item.name} {...item} />
+            {footerLinks.workWithUs.map(item => (
+              <FooterLink key={item.name} name={item.name} link="/work-in-progress" />
             ))}
           </Flex>
         </SimpleGrid>

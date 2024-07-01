@@ -1,10 +1,22 @@
 import React from 'react';
+import axios from 'axios';
 import { Box, Button, Checkbox, FormControl, Input, Text, Textarea } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const token = localStorage.getItem('token');
+      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+      await axios.post(`${import.meta.env.VITE_API_URL}/contact`, data, {headers});
+        alert('Message sent successfully');
+        reset();
+      } catch(error) {
+        alert('Error sending message');
+        console.error('There was an error sending the message!', error);
+      }
+  };
 
   return (
     <Box width='100%' borderRadius='sm' backgroundColor='white' color='gray.700'>
