@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Text, Heading } from '@chakra-ui/react';
-import { CustomContainer } from '../CustomContainer';
+// import { CustomContainer } from '../CustomContainer';
+import { TempCustomContainer as CustomContainer } from "../TempCustomContainer";
 import { CustomFlexContainer } from '../CustomFlexContainer';
 
 const WorkInProgress = () => {

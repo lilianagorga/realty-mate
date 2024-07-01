@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Image, Text, Heading } from "@chakra-ui/react";
-import { CustomContainer } from "./CustomContainer.jsx";
+import { TempCustomContainer as CustomContainer } from "./TempCustomContainer";
 
 
 const Banner = ({ name, title, cover }) => {
