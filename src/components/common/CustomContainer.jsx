@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/react"
 
-export const TempCustomContainer = ({
+export const CustomContainer = ({
   children,
   maxW = { base: "90%", md: "80%" },
   mx = "auto",

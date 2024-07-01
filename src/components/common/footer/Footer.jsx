@@ -3,8 +3,7 @@ import axios from 'axios';
 import { Box, SimpleGrid, Text, Flex, Heading, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom'; 
 import { HiHomeModern } from 'react-icons/hi2';
-import { TempCustomContainer as CustomContainer } from '../TempCustomContainer.jsx';
-// import { CustomContainer } from '../CustomContainer.jsx';
+import { CustomContainer } from '../CustomContainer.jsx';
 import { CustomFlexContainer } from '../CustomFlexContainer.jsx';
 
 
