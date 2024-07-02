@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -19,27 +19,31 @@ describe('Pricing Component', () => {
     vi.mocked(getPrices).mockResolvedValue(mockPriceData);
   });
 
-  test('renders the Pricing component', () => {
-    render(
-      <ChakraProvider theme={theme}>
-        <BrowserRouter>
-          <Pricing />
-        </BrowserRouter>
-      </ChakraProvider>
-    );
+  test('renders the Pricing component', async () => {
+    await act(async () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <BrowserRouter>
+            <Pricing />
+          </BrowserRouter>
+        </ChakraProvider>
+      );
+    });
 
     expect(screen.getByText(/30 days money back guarantee/i)).toBeInTheDocument();
     expect(screen.getByText(/No Extra Fees. Friendly Support/i)).toBeInTheDocument();
   });
 
-  test('renders the Banner component', () => {
-    render(
-      <ChakraProvider theme={theme}>
-        <BrowserRouter>
-          <Pricing />
-        </BrowserRouter>
-      </ChakraProvider>
-    );
+  test('renders the Banner component', async () => {
+    await act(async () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <BrowserRouter>
+            <Pricing />
+          </BrowserRouter>
+        </ChakraProvider>
+      );
+    });
 
     expect(screen.getByText(/30 days money back guarantee/i)).toBeInTheDocument();
     expect(screen.getByText(/No Extra Fees. Friendly Support/i)).toBeInTheDocument();
@@ -48,13 +52,16 @@ describe('Pricing Component', () => {
   });
 
   test('renders the PriceCard component', async () => {
-    render(
-      <ChakraProvider theme={theme}>
-        <BrowserRouter>
-          <Pricing />
-        </BrowserRouter>
-      </ChakraProvider>
-    );
+    await act(async () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <BrowserRouter>
+            <Pricing />
+          </BrowserRouter>
+        </ChakraProvider>
+      );
+    });
+
 
     await waitFor(() => {
       const priceCards = screen.getAllByRole('heading', { level: 3 });
