@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import userEvent from '@testing-library/user-event';
 import theme from '../assets/js/theme';
@@ -10,13 +10,16 @@ import '../setupTests';
 
 describe('Footer', () => {
   test('renders all sections with correct links', async () => {
-    render(
-      <ChakraProvider theme={theme}>
-        <MemoryRouter initialEntries={['/']}>
-          <Footer />
-        </MemoryRouter>
-      </ChakraProvider>
-    );
+    await act(async () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <MemoryRouter initialEntries={['/']}>
+            <Footer />
+          </MemoryRouter>
+        </ChakraProvider>
+      );
+    });
+
 
     await waitFor(() => {
       expect(screen.getByText('Our Services')).toBeInTheDocument();
@@ -44,14 +47,16 @@ describe('Footer', () => {
   });
 
 
-  test('renders contact section and button', () => {
-    render(
-      <ChakraProvider theme={theme}>
-        <MemoryRouter initialEntries={['/']}>
-          <Footer />
-        </MemoryRouter>
-      </ChakraProvider>
-    );
+  test('renders contact section and button', async () => {
+    await act(async () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <MemoryRouter initialEntries={['/']}>
+            <Footer />
+          </MemoryRouter>
+        </ChakraProvider>
+      );
+    });
 
     expect(screen.getByText('Do You Have Questions ?')).toBeInTheDocument();
 
@@ -59,14 +64,17 @@ describe('Footer', () => {
     expect(contactButton).toBeInTheDocument();
   });
 
-  test('renders footer branding', () => {
-    render(
-      <ChakraProvider theme={theme}>
-        <MemoryRouter initialEntries={['/']}>
-          <Footer />
-        </MemoryRouter>
-      </ChakraProvider>
-    );
+  test('renders footer branding', async () => {
+    await act(async () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <MemoryRouter initialEntries={['/']}>
+            <Footer />
+          </MemoryRouter>
+        </ChakraProvider>
+      );
+    });
+
 
     expect(screen.getByText('REALTY MATE')).toBeInTheDocument();
     expect(screen.getByText('All rights reserved - Copyright REALTY MATE')).toBeInTheDocument();

@@ -6,6 +6,10 @@ import { describe, test, expect } from 'vitest';
 import theme from '../assets/js/theme';
 import HeroBanner from '../components/HeroBanner';
 
+beforeAll(() => {
+  vi.spyOn(window, 'alert').mockImplementation(() => {});
+});
+
 describe('HeroBanner', () => {
   test('renders HeroBanner with text and HeroForm', () => {
     render(

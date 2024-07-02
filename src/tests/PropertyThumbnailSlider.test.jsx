@@ -1,9 +1,15 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { vi } from 'vitest';
 import '@testing-library/jest-dom';
 import PropertyThumbnailSlider from '../components/property/PropertyThumbnailSlider';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '../assets/js/theme';
+
+vi.mock('swiper/react', () => ({
+  Swiper: ({ className, children }) => <div className={className}>{children}</div>,
+  SwiperSlide: ({ children }) => <div>{children}</div>,
+}));
 
 describe('PropertyThumbnailSlider', () => {
   const photos = [

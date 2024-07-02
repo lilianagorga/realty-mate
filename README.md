@@ -7,6 +7,8 @@
 - **Property Search**: Search properties for sale and rent using the Bayut API.
 - **Map View**: View properties on the map using Google Maps.
 - **Mortgage Calculator**: Calculate mortgage payments for selected properties.
+- **User Authentication**: Register and login to manage properties.
+- **Property Management**: Add and view user's own properties.
 - **Testimonials**: Read reviews from satisfied clients.
 - **Responsiveness**: Layout optimized for mobile, tablet, and desktop devices.
 
@@ -32,8 +34,11 @@
   - **property**: Contains property-related components.
   - **team**: Contains team-related components.
   - **testimonials**: Contains testimonial-related components.
+  - **auth**: Contains authentication-related components like Login, Register, RequireAuth.
+  - **propertyInternal**: Contains components for internal property management.
 - **src/mocks**: Contains mocks used in the application.
 - **src/context**: Contains React context for global state management.
+   - **AuthContext.js**: Provides authentication context and methods.
 - **src/data**: Contains mock data used for testing.
   - **properties.json**: List of properties.
   - **property.json**: Details about each property.
@@ -61,6 +66,7 @@
   ```bash
   VITE_RAPIDAPI_KEY=your-rapidapi-key
   VITE_GOOGLE_MAP_API_KEY=your-google-map-api-key
+  VITE_API_URL=http://localhost:8000/api
   VITE_USE_MOCK_DATA=true
   ```
 
@@ -78,4 +84,18 @@
   For an interactive test UI:
   ```bash
   npm run test:ui
+  ```
+
+6. **Production Setup:**
+  Create a `.env.production` file at the root of the project and add the following variables:
+  ```bash
+  VITE_RAPIDAPI_KEY=your-rapidapi-key
+  VITE_GOOGLE_MAP_API_KEY=your-google-map-api-key
+  VITE_API_URL=https://realty-mate-backend.lilianagorga.com/api
+  VITE_USE_MOCK_DATA=false
+  ```
+
+7. **To build the application for production, use the following command:**
+  ```bash
+  npm run build
   ```

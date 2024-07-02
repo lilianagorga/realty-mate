@@ -19,6 +19,11 @@ vi.mock('../utils/fetchApi', () => ({
   getProperty: vi.fn(() => Promise.resolve(propertyMock[0])),
 }));
 
+vi.mock('swiper/react', () => ({
+  Swiper: ({ children }) => <div>{children}</div>,
+  SwiperSlide: ({ children }) => <div>{children}</div>,
+}));
+
 describe('Property Component', () => {
   test('renders property details correctly', async () => {
     render(

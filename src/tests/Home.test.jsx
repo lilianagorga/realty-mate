@@ -1,15 +1,19 @@
 import React from 'react';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { expect, vi, beforeEach, afterEach } from 'vitest';
+import { expect, vi, beforeEach, afterEach, afterAll } from 'vitest';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import Home from '../components/pages/Home';
 import * as fetchApi from '../utils/fetchApi';
 import propertiesDataMock from '../data/properties.json';
 import theme from '../assets/js/theme';
+import axios from 'axios';
 
 let propertiesDataMockBackup;
+
+axios.defaults.transformRequest = [(data) => data];
+axios.defaults.transformResponse = [(data) => data];
 
 vi.mock('../utils/fetchApi.js', () => ({
   getProperties: vi.fn(() => Promise.resolve(propertiesDataMock.hits))
@@ -98,9 +102,14 @@ beforeEach(() => {
   };
 });
 
-
 afterEach(() => {
   propertiesDataMock.hits = JSON.parse(JSON.stringify(propertiesDataMockBackup.hits));
+  vi.clearAllMocks();
+});
+
+afterAll(() => {
+  vi.clearAllMocks();
+  vi.resetAllMocks();
 });
 
 describe('Home Component', () => {
@@ -164,7 +173,9 @@ describe('Home Component', () => {
       },
     };
     mockGetPlace.mockReturnValue(mockPlace);
-    autocompleteInstance.triggerPlaceChanged();
+    await act(async () => {
+      autocompleteInstance.triggerPlaceChanged();
+    });
   
     await waitFor(() => {
       expect(mapInstance.setCenter).toHaveBeenCalledWith({
