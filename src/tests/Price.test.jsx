@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import theme from '../assets/js/theme';
@@ -20,9 +21,11 @@ describe('Price Component', () => {
   test('renders the Price component with correct title and subtitle', async () => {
     await act(async () => {
       render(
-        <ChakraProvider theme={theme}>
-          <Price />
-        </ChakraProvider>
+        <MemoryRouter>
+          <ChakraProvider theme={theme}>
+            <Price />
+          </ChakraProvider>
+        </MemoryRouter>
       );
     });
 

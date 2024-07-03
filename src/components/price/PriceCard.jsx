@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, Button, Heading, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import { convertToEuro } from '../../utils/currency.js';
+import { useNavigate } from "react-router-dom";
 
 const PriceCard = ({ price, index }) => {
+  const navigate = useNavigate();
   return (
     <Box 
       w={{ base: "100%", md: "calc(33.33% - 20px)" }}
@@ -21,6 +23,7 @@ const PriceCard = ({ price, index }) => {
             p="17px 30px"
             fontWeight="bold"
             mb="20px"
+            onClick={() => navigate('/contact')}
           >
             {price.best}
           </Button>
@@ -65,6 +68,7 @@ const PriceCard = ({ price, index }) => {
         border="5px solid"
         borderColor="price.200"
         mb="20px"
+        onClick={() => navigate('/contact')}
       >
         Start {price.plan}
       </Button>

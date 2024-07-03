@@ -30,7 +30,7 @@ function Properties() {
   return (
     <Box backgroundColor='brand.100' p={12} mt={10}>
       <Box maxWidth='1280px' margin='0 auto'>
-        <SimpleGrid columns={{base: '1', sm: '3'}} gap={{base: '0', sm: '2rem'}}>
+        <SimpleGrid columns={{base: '1', lg: '3'}} gap={{base: '0', sm: '2rem'}}>
           {properties.map((property) => (
             <PropertyCard key={property.id} {...property} />
           ))}

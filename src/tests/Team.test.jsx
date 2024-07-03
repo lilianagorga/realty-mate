@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import theme from '../assets/js/theme';
 import Team from '../components/team/Team';
@@ -18,9 +19,11 @@ describe('Team Component', () => {
   });
   test('renders the Team component with correct title and subtitle', async () => {
     render(
-      <ChakraProvider theme={theme}>
-        <Team />
-      </ChakraProvider>
+      <MemoryRouter>
+        <ChakraProvider theme={theme}>
+          <Team />
+        </ChakraProvider>
+      </MemoryRouter>
     );
 
     expect(await screen.findByText(/Our Featured Agents/i)).toBeInTheDocument();
@@ -28,9 +31,11 @@ describe('Team Component', () => {
   });
   test('renders all team members with correct details', async () => {
     render(
-      <ChakraProvider theme={theme}>
-        <Team />
-      </ChakraProvider>
+      <MemoryRouter>
+        <ChakraProvider theme={theme}>
+          <Team />
+        </ChakraProvider>
+      </MemoryRouter>
     );
   
     await waitFor(() => {
