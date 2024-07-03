@@ -2,8 +2,8 @@ export const mockTeamData = [
   {
     list: "50",
     cover: "/images/customer/team-1.jpg",
-    address: "Liverpool, Canada",
-    name: "Sargam S. Singh",
+    address: "Milan, Italy",
+    name: "Giovanni Rossi",
     icon: JSON.stringify([
       '<i class="fa-brands fa-facebook-f"></i>', 
       '<i class="fa-brands fa-linkedin"></i>', 
@@ -14,8 +14,8 @@ export const mockTeamData = [
   {
     list: "70",
     cover: "/images/customer/team-2.jpg",
-    address: "Montreal, Canada",
-    name: "Harijeet M. Siller",
+    address: "Florence, Italy",
+    name: "Francesca Bianchi",
     icon: JSON.stringify([
       '<i class="fa-brands fa-facebook-f"></i>', 
       '<i class="fa-brands fa-linkedin"></i>', 
@@ -26,8 +26,8 @@ export const mockTeamData = [
   {
     list: "80",
     cover: "/images/customer/team-3.jpg",
-    address: "Denever, USA",
-    name: "Anna K. Young",
+    address: "Rome, Italy",
+    name: "Luca Verdi",
     icon: JSON.stringify([
       '<i class="fa-brands fa-facebook-f"></i>', 
       '<i class="fa-brands fa-linkedin"></i>', 
@@ -38,8 +38,8 @@ export const mockTeamData = [
   {
     list: "10",
     cover: "/images/customer/team-4.jpg",
-    address: "2272 Briarwood Drive",
-    name: "Michael P. Grimaldo",
+    address: "Naples, italy",
+    name: "Paola Neri",
     icon: JSON.stringify([
       '<i class="fa-brands fa-facebook-f"></i>', 
       '<i class="fa-brands fa-linkedin"></i>', 
@@ -50,8 +50,8 @@ export const mockTeamData = [
   {
     list: "42",
     cover: "/images/customer/team-5.jpg",
-    address: "2272 Briarwood Drive",
-    name: "Michael P. Grimaldo",
+    address: "Paris, France",
+    name: "Michael P. Grimaldi",
     icon: JSON.stringify([
       '<i class="fa-brands fa-facebook-f"></i>', 
       '<i class="fa-brands fa-linkedin"></i>', 
@@ -61,9 +61,9 @@ export const mockTeamData = [
   },
   {
     list: "38",
-    cover: "/images/customer/team-5.jpg",
-    address: "Montreal, USA",
-    name: "Adam K. Jollio",
+    cover: "/images/customer/team-1.jpg",
+    address: "Berlin, Germany",
+    name: "Adam K. Joli",
     icon: JSON.stringify([
       '<i class="fa-brands fa-facebook-f"></i>', 
       '<i class="fa-brands fa-linkedin"></i>', 

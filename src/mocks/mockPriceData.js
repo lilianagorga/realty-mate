@@ -4,11 +4,11 @@ export const mockPriceData = [
     price: 29,
     ptext: "per user, per month",
     features: [
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "99.5% Uptime Guarantee" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "120GB CDN Bandwidth" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "5GB Cloud Storage" },
-      { icon: JSON.stringify('<i class="fa-solid fa-x"></i>'), text: "Personal Help Support", change: "color" },
-      { icon: JSON.stringify('<i class="fa-solid fa-x"></i>'), text: "Enterprise SLA", change: "color" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Access Basic Listings" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Publish 10 Listings" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Email Support" },
+      { icon: JSON.stringify('<i class="fa-solid fa-x"></i>'), text: "Phone Support", change: "color" },
+      { icon: JSON.stringify('<i class="fa-solid fa-x"></i>'), text: "Market Analysis", change: "color" },
     ]
   },
   {
@@ -17,11 +17,11 @@ export const mockPriceData = [
     price: 49,
     ptext: "per user, per month",
     features: [
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "99.5% Uptime Guarantee" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "150GB CDN Bandwidth" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "10GB Cloud Storage" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Personal Help Support" },
-      { icon: JSON.stringify('<i class="fa-solid fa-x"></i>'), text: "Enterprise SLA", change: "color" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Access All Listings" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Publish 50 Listings" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Email and Chat" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Phone Support" },
+      { icon: JSON.stringify('<i class="fa-solid fa-x"></i>'), text: "Market Analysis", change: "color" },
     ]
   },
   {
@@ -29,11 +29,11 @@ export const mockPriceData = [
     price: 79,
     ptext: "2 user, per month",
     features: [
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "100% Uptime Guarantee" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "200GB CDN Bandwidth" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "20GB Cloud Storage" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Personal Help Support" },
-      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Enterprise SLA" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Unlimited Listings" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Full Market Access" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Email, Chat, Phone" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Personal Phone Support" },
+      { icon: JSON.stringify('<i class="fa-solid fa-check"></i>'), text: "Market Analysis" },
     ]
   },
 ];

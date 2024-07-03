@@ -167,15 +167,9 @@ const Navbar = () => {
           </MenuItem>
           <MenuItem icon={<FcAbout />} onClick={() => navigate('/about')}>
               About
-            </MenuItem>
-            <MenuItem icon={<MdAttachMoney />} onClick={() => navigate('/pricing')}>
-              Pricing
-            </MenuItem>
-          <MenuItem icon={<FiKey />} onClick={() => navigate('/search?purpose=for-sale')}>
-            Buy Property
           </MenuItem>
-          <MenuItem icon={<FiKey />} onClick={() => navigate('/search?purpose=for-rent')}>
-            Rent Property
+          <MenuItem icon={<MdAttachMoney />} onClick={() => navigate('/pricing')}>
+            Pricing
           </MenuItem>
           <MenuItem icon={<AiOutlineMail />} onClick={() => navigate('/contact')}>
               Contact
