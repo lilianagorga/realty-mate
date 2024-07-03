@@ -52,8 +52,8 @@
 
 1. **Clone the repository:**
   ```bash
-  git clone https://github.com/your-username/realtymate.git
-  cd realtymate
+  git clone https://github.com/your-username/realty-mate.git
+  cd realty-mate
   ```
 
 2. **Install dependencies:**
@@ -99,3 +99,7 @@
   ```bash
   npm run build
   ```
+
+### Contributing
+
+### *Feel free to submit issues, fork the repository and send pull requests*.
