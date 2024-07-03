@@ -100,6 +100,10 @@
   npm run build
   ```
 
+## Live Deploy
+* The application will be accessible at https://realty-mate.lilianagorga.com/
+
 ### Contributing
 
-### *Feel free to submit issues, fork the repository and send pull requests*.
+#### *Feel free to submit issues, fork the repository and send pull requests*.
+
