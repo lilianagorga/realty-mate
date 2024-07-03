@@ -6,9 +6,11 @@ import Heading from "../common/Heading.jsx";
 import { CustomContainer } from "../common/CustomContainer.jsx";
 import { CustomFlexContainer } from "../common/CustomFlexContainer.jsx";
 import { getTeams } from "../../utils/fetchData.js";
+import { useNavigate } from "react-router-dom";
 
 const Team = () => {
   const [teamMembers, setTeamMembers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTeams = async () => {
@@ -135,11 +137,14 @@ const Team = () => {
                     color="white"
                     cursor="pointer"
                     fontWeight="bold"
+                    justifyContent="center"
                   >
-                    <Button variant="message" leftIcon={<FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '5px' }} />}>
+                    <Button 
+                      variant="message" 
+                      leftIcon={<FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '5px' }} />} 
+                      onClick={() => navigate('/contact')}
+                    >
                       Message
-                    </Button>
-                    <Button variant="dark" leftIcon={<FontAwesomeIcon icon={faPhoneAlt} style={{ marginLeft: '5px', color: 'white', fontSize: '20px' }} />}>
                     </Button>
                   </CustomFlexContainer>
                 </Box>

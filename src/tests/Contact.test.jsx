@@ -20,11 +20,11 @@ describe('Contact Component', () => {
 
     expect(screen.getByText(/Laura Rossi/i)).toBeInTheDocument();
     expect(screen.getByText(/Public Relations Manager/i)).toBeInTheDocument();
-    expect(screen.getByText(/Via Dante 12, 20121 Milano, Italia/i)).toBeInTheDocument();
+    expect(screen.getByText(/Florence, Italy/i)).toBeInTheDocument();
 
     expect(screen.getByText(/Luca Bianchi/i)).toBeInTheDocument();
     expect(screen.getByText(/Customer Service Manager/i)).toBeInTheDocument();
-    expect(screen.getByText(/Via Verdi 15, 20122 Milano, Italia/i)).toBeInTheDocument();
+    expect(screen.getByText(/Milan, Italy/i)).toBeInTheDocument();
   });
 
   test('renders ContactForm component', () => {

@@ -26,12 +26,12 @@ const Contact = () => {
             <Text fontWeight='light' color='gray.600' fontSize='1rem' marginBottom='1rem'>
               Laura Rossi <br />
               Public Relations Manager <br />
-              Via Dante 12, 20121 Milano, Italia
+              Florence, Italy
             </Text>
             <Text fontWeight='light' color='gray.600' fontSize='1rem' marginBottom='1rem'>
               Luca Bianchi <br />
               Customer Service Manager <br />
-              Via Verdi 15, 20122 Milano, Italia
+              Milan, Italy
             </Text>
           </TextContentBox>
         </GridItem>
